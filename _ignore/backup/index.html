@@ -1,0 +1,1088 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="High-performance ADS-B and Mode S decoding for real-time applications">
+      
+      
+      
+        <link rel="canonical" href="https://mode-s.org/jet1090/_ignore/backup/">
+      
+      
+      
+      
+      <link rel="icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>Backup - jet1090</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Backup - jet1090" >
+      
+        <meta  property="og:description"  content="High-performance ADS-B and Mode S decoding for real-time applications" >
+      
+        <meta  property="og:image"  content="https://mode-s.org/jet1090/assets/images/social/_ignore/backup.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://mode-s.org/jet1090/_ignore/backup/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Backup - jet1090" >
+      
+        <meta  name="twitter:description"  content="High-performance ADS-B and Mode S decoding for real-time applications" >
+      
+        <meta  name="twitter:image"  content="https://mode-s.org/jet1090/assets/images/social/_ignore/backup.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#building" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="jet1090" class="md-header__button md-logo" aria-label="jet1090" data-md-component="logo">
+      
+  <img src="../../images/jet1090-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            jet1090
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Backup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/xoolive/rs1090/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xoolive/rs1090
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../install/" class="md-tabs__link">
+        
+  
+    
+  
+  Installation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sources/" class="md-tabs__link">
+        
+  
+    
+  
+  Sources of data
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../output/" class="md-tabs__link">
+        
+  
+    
+  
+  Serving real-time data
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../config/" class="md-tabs__link">
+        
+  
+    
+  
+  Configuration options
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contribute/" class="md-tabs__link">
+        
+  
+    
+  
+  Contribute to the project
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="jet1090" class="md-nav__button md-logo" aria-label="jet1090" data-md-component="logo">
+      
+  <img src="../../images/jet1090-logo.png" alt="logo">
+
+    </a>
+    jet1090
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/xoolive/rs1090/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xoolive/rs1090
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sources of data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../output/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Serving real-time data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuration options
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contribute/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contribute to the project
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#building" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#normal-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Normal usage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-rtl1090-as-raw-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using RTL1090 as RAW source
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-files-as-source-of-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using files as source of data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional options
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reliability
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performances-and-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performances and detection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-server-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network server features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#antenna" class="md-nav__link">
+    <span class="md-ellipsis">
+      Antenna
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aggressive-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aggressive mode
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug mode
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-this-program-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How this program works?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-test-the-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to test the program?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-strip-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is --strip mode?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contributing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credits
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Backup</h1>
+
+<p><strong>ADS-B</strong> basics:</p>
+<ul>
+<li>A YouTube <strong><a href="https://www.youtube.com/watch?v=BDLFHdq540g&amp;ab_channel=AP47TV">video</a></strong>
+  explaining it's basics and motivation.</li>
+<li>A detailed technical description by professor <strong><a href="https://mode-s.org/decode/">Junzi Sun</a></strong>.</li>
+<li>Or as a <strong><a href="docs/The-1090MHz-riddle.pdf">PDF</a></strong> in this repo.</li>
+</ul>
+<p><strong>The main features</strong> of <em>Dump1090</em> are:</p>
+<ul>
+<li>Robust decoding of weak messages, with <em>Dump1090</em> many users observed
+  improved range compared to other popular decoders.</li>
+<li>Network support: <em>TCP</em> port 30003 stream (<em>MSG5</em> ...), Raw packets and HTTP.</li>
+<li>An embedded <strong><a href="https://www.cesanta.com/">Mongoose</a></strong> HTTP server that displays
+  the currently detected aircrafts on an OpenStreet Map.<br>
+  Hopefully WebSocket support is coming soon (JScript and Json transfer is rather chatty).</li>
+<li>Single bit errors correction using the 24 bit CRC.</li>
+<li>Ability to decode <em>DF11</em>, <em>DF17</em> messages (<strong>Downlink Format</strong>).</li>
+<li>Ability to decode formats like <em>DF0</em>, <em>DF4</em>, <em>DF5</em>, <em>DF16</em>, <em>DF20</em> and <em>DF21</em>
+  where the checksum is <em>XORed</em> with the ICAO address by brute forcing the
+  checksum field using recently seen ICAO addresses.</li>
+<li>Decode raw IQ samples from file (using the <code>--infile bin-file</code> command line option).</li>
+<li>Interactive command-line-interface mode where aircrafts currently detected
+  are shown as a list refreshing as more data arrives. Planes that haven't been seen
+  last 60 seconds are removed from the list (key/value <code>interactive-ttl = sec</code> to change).</li>
+<li><em>CPR</em> (<strong>Compact Position Reporting</strong>) coordinates decoding and track calculation from velocity.</li>
+<li>TCP server streaming and receiving raw data to/from connected clients <br>
+  (options <code>--net</code> or <code>--net-only</code>).</li>
+<li>Many command-line options are now in the <code>dump1090.cfg</code> file. See below.</li>
+</ul>
+<h2 id="building">Building<a class="headerlink" href="#building" title="Permanent link">&para;</a></h2>
+<p>Assuming you have downloaded (or <code>git clone</code>-d) this package to <code>c:\dev\Dump1090</code>,
+then <code>cd c:\dev\Dump1090\src</code> and do:</p>
+<ul>
+<li>Using GNU-make, type:</li>
+<li><code>c:\dev\Dump1090\src&gt; make -f Makefile.Windows CC=cl</code> (or <code>CC=clang-cl</code>).</li>
+<li>Or using Visual Studio tools:</li>
+<li><code>c:\dev\Dump1090\src&gt; msbuild -p:Configuration=Release -p:Platform="x86" Dump1090.sln</code>.</li>
+<li>or start the Visual Studio IDE, open <code>Dump1090.sln</code>, right-click and <code>Build Solution</code>. <br>
+    The project may have to be retargeted. <em>Devenv</em> would do this automatically and print <br>
+    <code>Configuration 'Release|x64': changing Platform Toolset to 'v143' (was 'v142')</code> when finished.</li>
+</ul>
+<h2 id="normal-usage">Normal usage<a class="headerlink" href="#normal-usage" title="Permanent link">&para;</a></h2>
+<p>Since the uncompressed <code>aircraft-database.csv</code> file is too big to be allowed here on Github, it will
+automatically be downloaded and unzipped from <a href="https://opensky-network.org/datasets/metadata/"><strong>OpenSky</strong></a>.
+On first run of <code>dump1090.exe</code>, this will print:</p>
+<div class="language-text highlight"><pre><span></span><code> Force updating &#39;c:\dev\Dump1090\aircraft-database.csv&#39; since it does not exist.
+ Force updating &#39;c:\temp\dump1090\aircraft-database-temp.zip&#39; from &#39;https://opensky-network.org/datasets/metadata/aircraftDatabase.zip&#39;
+ Got 24162 kB.
+ Copied &#39;c:\temp\dump1090\aircraft-database-temp.csv&#39; -&gt; &#39;c:\dev\Dump1090\aircraft-database.csv&#39;
+ Deleting &#39;c:\dev\Dump1090\aircraft-database.csv.sqlite&#39; to force a rebuild in &#39;aircraft_CSV_load()&#39;
+ using Sqlite file: &quot;c:\dev\Dump1090\aircraft-database.csv.sqlite&quot;.
+ Loading &#39;c:\dev\Dump1090\aircraft-database.csv&#39; could take some time.
+ Creating SQL-database &#39;c:\dev\Dump1090\aircraft-database.csv.sqlite&#39;... 518999
+ Created 519998 records
+</code></pre></div>
+<p>To capture traffic directly from your RTL-SDR device and show the captured traffic
+on standard output, just run the program without options at all:</p>
+<div class="language-text highlight"><pre><span></span><code>c:\dev\Dump1090&gt; dump1090
+</code></pre></div>
+<p>To use a SDRplay device, the option <code>--device</code> must be used. Like:</p>
+<div class="language-text highlight"><pre><span></span><code>c:\dev\Dump1090&gt; dump1090 --device sdrplay0
+</code></pre></div>
+<p>To use a remote RTLTCP device (defaults to port 1234), use:</p>
+<div class="language-text highlight"><pre><span></span><code>c:\dev\Dump1090&gt; dump1090 --device tcp://host1
+</code></pre></div>
+<p>or:</p>
+<div class="language-text highlight"><pre><span></span><code>c:\dev\Dump1090&gt; dump1090 --device tcp://host2:2345
+</code></pre></div>
+<p>But these devices does not work correctly yet.</p>
+<p>Example output:</p>
+<div class="language-text highlight"><pre><span></span><code>Tuned to 1090.000 MHz. Gain reported by device: AUTO.
+*8d479e84580fd03d66d139c1cd17;
+CRC: c1cd17 (ok)
+DF 17: ADS-B message.
+  Capability     : 5 (Level 2+3+4 (DF0,4,5,11,20,21,24,code7 - is on airborne))
+  ICAO Address   : 479e84
+  Extended Squitter  Type: 11
+  Extended Squitter  Sub : 0
+  Extended Squitter  Name: Airborne Position (Baro Altitude)
+    F flag   : even
+    T flag   : non-UTC
+    Altitude : 2125 feet
+    Latitude : 7859 (not decoded)
+    Longitude: 53561 (not decoded)
+...
+</code></pre></div>
+<p>To only output hexadecimal messages:</p>
+<div class="language-text highlight"><pre><span></span><code>c:\dev\Dump1090&gt; dump1090 --raw
+</code></pre></div>
+<p>Example output:</p>
+<div class="language-text highlight"><pre><span></span><code>Tuned to 1090.000 MHz. Gain reported by device: AUTO.
+*8d47c1abea040830015c087c6a4b;
+*8d479e84990c5607200c8319b311;
+*8d479e84580fd04278cda6bd6d32;
+...
+</code></pre></div>
+<p>To run the program in interactive mode:
+<code>c:\dev\Dump1090&gt; dump1090 --interactive</code></p>
+<p>To run the program in interactive mode, with network support and connecting
+to your browser to <strong>http://localhost:8080</strong>, use this command:</p>
+<div class="language-text highlight"><pre><span></span><code>c:\dev\Dump1090&gt; dump1090 --interactive --net
+</code></pre></div>
+<p>It will present live traffic to the Web-browser:
+<strong><img alt="web-page" src="dump1090-web.png" /></strong></p>
+<p>and the <em>Windows Legacy Console</em>:
+<strong><img alt="console output" src="dump1090-win.png" /></strong></p>
+<p>or with <code>tui = curses</code> in the <code>dump1090.cfg</code> file and started as <code>c:\dev\Dump1090&gt; dump1090 --interactive</code> inside
+<a href="https://github.com/microsoft/terminal"><strong>Windows Terminal</strong></a> and a suitable background image: <strong><img alt="curses WinTerm" src="dump1090-wt-1.png" /></strong></p>
+<p>In this interactive mode there is a more compact output. Where the screen is refreshed
+up to 4 times per second displaying all the recently seen aircrafts with some additional
+information such as call-sign, registration-number, country, altitude, speed, heading and position.
+Most items are extracted from the received <em>Mode S</em> packets. <br>
+Except for:</p>
+<ul>
+<li><em>Cntry</em> (2 letter ISO3166) taken from the <em>official</em> range of ICAO address/country mapping.</li>
+<li><em>RSSI</em> (logarithmic <em>Received Signal Strength Indicator</em>) is calculated from the 4 last messages.</li>
+</ul>
+<p>If a config-setting <code>homepos = longitude,latitude</code> setting is defined, the distance to the place gets
+calculated. I.e. the <code>Dist</code> column above. E.g. a <code>homepos = 60.3016821,5.3208769</code>
+for Bergen/Norway. Find your location on <a href="https://www.freemaptools.com/elevation-finder.htm"><strong>FreeMapTools</strong></a>.</p>
+<p>Otherwise a <code>location = true</code> setting will try to get this position from the
+<a href="https://learn.microsoft.com/en-us/windows/win32/api/locationapi/nn-locationapi-ilocation"><strong>Windows Location API</strong></a>.</p>
+<p>The program supports another Web-root implementation (than the default <code>./web_root/gmap.html</code>) using the <code>web-page = &lt;HTML-file&gt;</code> key/value.
+Running with <code>web-page = %~dp0\web_root-Tar1090\index.html</code> in the <code>dump1090.cfg</code> file and starting:</p>
+<div class="language-text highlight"><pre><span></span><code>c:\dev\Dump1090&gt; dump1090 --interactive
+</code></pre></div>
+<p>will show a much more advanced Web-page thanks to <a href="https://github.com/wiedehopf/tar1090/"><strong>Tar1090</strong></a> and data from <a href="https://github.com/wiedehopf/tar1090-db/"><strong>Tar1090-DB</strong></a>:
+<strong><img alt="tar1090 output" src="dump1090-tar1090-web.png" /></strong></p>
+<p>Building with a <em>packed Web-filesystem</em> is also possible. Then <strong>all</strong> web-pages are built into a <code>web-pages.dll</code> file. <br>
+Ref. <code>USE_PACKED_WEB = 1</code> in <a href="https://github.com/gvanem/Dump1090/blob/main/Makefile.Windows#L22"><strong>Makefile.Windows</strong></a>
+and a <code>web-page = web-pages.dll;N</code> in the <a href="dump1090.cfg"><strong>config-file</strong></a>.</p>
+<h2 id="using-rtl1090-as-raw-source">Using RTL1090 as RAW source<a class="headerlink" href="#using-rtl1090-as-raw-source" title="Permanent link">&para;</a></h2>
+<p>And when using the excellent <em><a href="https://rtl1090.com/">RTL1090</a> V3 Scope</em> program by <a href="https://jetvision.de/"><strong>JetVision</strong></a> as
+the collector and generator of <strong>RAW-IN</strong> messages, and Dump1090 started like:</p>
+<div class="language-text highlight"><pre><span></span><code>dump1090.exe --net-active --interactive --config host-raw.cfg
+</code></pre></div>
+<p>both programs in combination may look like this: <img alt="rtl1090 output" src="rtl1090.jpg" />.</p>
+<p>(the 2 lower screens above are the <a href="https://www.jetvision.de/manuals/rtl1090.beta3.zip">Beta3</a> version).</p>
+<p>And in non-interactive mode, <code>dump1090.exe --net-active --config host-raw.cfg</code>
+shows it like:</p>
+<div class="language-text highlight"><pre><span></span><code>*8d479e84580fd03d66d139c1cd17;
+CRC: c1cd17 (ok)
+DF 17: ADS-B message.
+ Capability     : 5 (Level 2+3+4 (DF0,4,5,11,20,21,24,code7 - is on airborne))
+ ICAO Address   : 479e84
+ Extended Squitter  Type: 11
+ Extended Squitter  Sub : 0
+ Extended Squitter  Name: Airborne Position (Baro Altitude)
+</code></pre></div>
+<p>(similar for the simple <code>dump1090</code> example above).</p>
+<h2 id="using-files-as-source-of-data">Using files as source of data<a class="headerlink" href="#using-files-as-source-of-data" title="Permanent link">&para;</a></h2>
+<p>To decode data from file, use:</p>
+<div class="language-text highlight"><pre><span></span><code>c:\dev\Dump1090&gt; dump1090 --infile file.bin
+</code></pre></div>
+<p>The binary file should be created using <code>rtl_sdr</code> like this (or with another
+program that is able to output 8-bit unsigned IQ samples at 2 MHz sample rate):</p>
+<div class="language-text highlight"><pre><span></span><code>c:\dev\OsmoCom&gt; rtl_sdr -f 1090M -s 2000000 output.bin
+</code></pre></div>
+<p>In the above example, <code>rtl_sdr</code> with AUTO gain is used. Use <code>rtl_sdr -g 50</code> for a 50 dB gain.
+A need to experiment with the gain depends on the tuner. But in my experience, AUTO gain
+works best (<code>gain = 0</code> in the <code>--config</code> file).</p>
+<p>This is not needed when calling <em>Dump1090</em> itself.</p>
+<p>It is possible to feed the program with data via <em>standard input</em> using
+the <code>--infile</code> option with <code>-</code> as argument.</p>
+<p>When a <code>aircraft-database.csv</code> is present and used with a <code>.bin</code>-file, it can show output like:</p>
+<div class="language-text highlight"><pre><span></span><code>c:\dev\Dump1090&gt; dump1090 --infile testfiles/modes1.bin
+...
+*5d4d20237a55a6;
+CRC: 7a55a6 (ok)
+DF 11: All Call Reply.
+  Capability  : Level 2+3+4 (DF0,4,5,11,20,21,24,code7 - is airborne)
+  ICAO Address: 4d2023 (reg-num: 9H-AEM, manuf: Airbus)
+
+*20000f1f684a6c;
+CRC: 684a6c (ok)
+DF 4: Surveillance, Altitude Reply.
+  Flight Status  : Normal, Airborne
+  DR             : 0
+  UM             : 0
+  Altitude       : 23375 feet
+  ICAO Address   : 4d2023 (reg-num: 9H-AEM, manuf: Airbus)
+</code></pre></div>
+<p>Use key/value <code>aircrafts = NUL</code> to avoid loading this huge (approx. 82 MByte)
+<code>.CSV</code> file. The latest version of this file is available from:
+<strong>https://opensky-network.org/datasets/metadata/</strong></p>
+<p>The option <code>--update</code> will check and download <br>
+<strong>https://opensky-network.org/datasets/metadata/aircraftDatabase.zip</strong> and
+extract using the internal <a href="https://github.com/kuba--/zip"><strong>zip</strong></a> functions.
+And also rebuild the <code>aircraft-database.csv.sqlite</code> file using the internal bundled
+<a href="src/externals/sqlite3.c"><strong>sqlite3.c</strong></a>.</p>
+<h2 id="additional-options">Additional options<a class="headerlink" href="#additional-options" title="Permanent link">&para;</a></h2>
+<p><em>Dump1090</em> now has limited command line options. Seldom used settings are now in the default <a href="dump1090.cfg"><strong>config-file</strong></a>. <br>
+This can select gain, frequency, and so forth. <br>
+The option <code>--config &lt;file&gt;</code> can select another custom <code>.cfg</code> file. <br>
+Full list of options use is shown using <code>dump1090 --help</code> or <code>dump1090 -h</code>.</p>
+<p>A setting like <code>freq = 1090.001M</code> is possible for cheap RTL-SDR devices with
+high frequency drift. But for most devices, this is not needed (due to the
+<em>capture effect</em> of the signal itself?).</p>
+<p>Everything is not documented here ... obviously. For most users running
+<code>dump1090 --interactive</code> is probably best thing to do.</p>
+<h2 id="reliability">Reliability<a class="headerlink" href="#reliability" title="Permanent link">&para;</a></h2>
+<p>By default <em>Dump1090</em> tries to fix single bit errors using the checksum.
+Basically the program will try to flip every bit of the message and check if
+the checksum of the resulting message matches.</p>
+<p>This is indeed able to fix errors and works reliably in my experience,
+however if you are interested in very reliable data, I suggest to use
+the <code>crc-check = false</code> setting to disable error fixing.</p>
+<h2 id="performances-and-detection">Performances and detection<a class="headerlink" href="#performances-and-detection" title="Permanent link">&para;</a></h2>
+<p>In my limited experience <em>Dump1090</em> was able to decode a large number of messages
+even in conditions where I encountered problems using other programs. However
+no formal test was performed so I can't really claim that this program is
+better or worse compared to other similar programs.</p>
+<p>If you can capture traffic that <em>Dump1090</em> is not able to decode properly, drop
+me an email with a download link. I may try to improve the detection during
+my free time (this is just an hobby project).</p>
+<h2 id="network-server-features">Network server features<a class="headerlink" href="#network-server-features" title="Permanent link">&para;</a></h2>
+<p>By enabling the network support with <code>--net</code>, <code>dump1090</code> starts listening
+for clients connections on port 30002 and 30001 (you can change both ports
+<code>net-X-port = Y</code>. Look in <code>dump1090.cfg</code> for details).</p>
+<ul>
+<li>
+<p><strong>Port 30002</strong> connected clients are served with data ASAP as they arrive from the device
+  (or from file if <code>--infile</code> is used) in the raw format similar to the following: <br>
+  <code>*8D451E8B99019699C00B0A81F36E;</code> <br>
+  Every entry is separated by a simple newline (LF character, hex <code>0x0A</code>).</p>
+</li>
+<li>
+<p><strong>Port 30001</strong> is the raw input port, and can be used to feed <code>dump1090</code> with
+  data in the same format as specified above, with hex messages starting with <code>*</code> and
+  ending with a <code>;</code> character. <br></p>
+</li>
+</ul>
+<p>So for instance if there is another remote <em>Dump1090</em> instance collecting data
+it is possible to sum the output to a local <em>Dump1090</em> instance with the help of
+NetCat or NCat:<br>
+<code>nc remote-dump1090.example.net 30002 | nc localhost 30001</code></p>
+<p>It is important to note that what is received via port 30001 is also
+broadcasted to clients listening to port 30002.</p>
+<p>In general everything received from port 30001 is handled exactly like the
+normal traffic from RTL devices or from file when <code>--infile</code> is used.</p>
+<p>If your feed <em>Dump1090</em> with data from the internet, one can use this command to
+see on the console what's happening: <br></p>
+<div class="language-text highlight"><pre><span></span><code>c:\dev\Dump1090&gt; dump1090 --net-only --interactive
+</code></pre></div>
+<ul>
+<li><strong>Port 30003</strong> connected clients are served with messages in
+  <strong><a href="http://woodair.net/sbs/article/barebones42_socket_data.htm">SBS1 (BaseStation) format</a></strong>, similar to: <br></li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code>MSG,4,,,738065,,,,,,,,420,179,,,0,,0,0,0,0
+MSG,3,,,738065,,,,,,,35000,,,34.81609,34.07810,,,0,0,0,0
+</code></pre></div>
+<p>This can be used to feed data to various sharing sites without the need to use another decoder.</p>
+<p>This is a screen-shot of dump1090 together with <a href="tools/SBS_client.py"><strong>tools/SBS_client.py</strong></a>:
+  <strong><img alt="SBS_client" src="dump1090-SBS.png" /></strong> invoked by <a href="run-dump1090-SBS.bat"><strong>run-dump1090-SBS.bat</strong></a>.</p>
+<h2 id="antenna">Antenna<a class="headerlink" href="#antenna" title="Permanent link">&para;</a></h2>
+<p><em>Mode S</em> messages are transmitted on the standard frequency of 1090 MHz. If you have a decent
+antenna you'll be able to pick up signals from aircrafts pretty far from your
+position, especially if you are outdoor and in a position with a good sky view.</p>
+<p>You can easily build a very cheap antenna following these <strong><a href="http://antirez.com/news/46">instructions</a></strong>.
+With this trivial antenna I was able to pick up signals of aircrafts 200+ Km away from me.</p>
+<p>If you are interested in a more serious antenna or ADS-B equipment, check the following resources:</p>
+<ul>
+<li><strong><a href="https://github.com/bistromath/gr-air-modes">GnuRadio Mode-S/ADS-B</a></strong>.</li>
+<li><strong><a href="http://www.lll.lu/~edward/edward/adsb/antenna/ADSBantenna.html">Simple ADSB J-pole antenna</a></strong>.</li>
+<li><strong><a href="https://ieeexplore.ieee.org/document/9129436">ADS-B / MLAT</a></strong>.
+  Multilateration; using a <em>Time Difference of Arrival</em> (TDOA) calculation
+  based on signals from several receivers (probably not cheap RTL-SDRs).</li>
+</ul>
+<h2 id="aggressive-mode">Aggressive mode<a class="headerlink" href="#aggressive-mode" title="Permanent link">&para;</a></h2>
+<p>With <code>error-correct2 = true</code> it is possible to activate the <em>aggressive mode</em> that is a
+modified version of the <em>Mode S</em> packet detection and decoding. The aggressive mode uses
+more CPU usually (especially if there are many planes sending <em>DF17</em> packets), but
+can detect a few more messages.</p>
+<p>The algorithm in aggressive mode is modified in the following ways:</p>
+<ul>
+<li>Up to two demodulation errors are tolerated (adjacent entires in the magnitude vector with the
+  same eight). Normally only messages without errors are checked.</li>
+<li>It tries to fix <em>DF17</em> messages trying every two bits combination.</li>
+</ul>
+<p>The use of aggressive mode is only advised in places where there is low traffic
+in order to have a chance to capture some more messages.</p>
+<h2 id="debug-mode">Debug mode<a class="headerlink" href="#debug-mode" title="Permanent link">&para;</a></h2>
+<p>The Debug mode is a visual help to improve the detection algorithm or to
+understand why the program is not working for a given input.</p>
+<p>In this mode messages are displayed in an ASCII-art style graphical
+representation, where the individual magnitude bars sampled at 2 MHz are
+displayed.</p>
+<p>An index shows the sample number, where 0 is the sample where the first
+<em>Mode S</em> peak was found. Some additional background noise is also shown
+before the first peak to provide some context.</p>
+<p>To enable debug mode and check what combinations of packets you can
+log, use <code>dump1090 --help</code> to obtain a list of available debug flags.</p>
+<p>Debug mode includes an optional JavaScript output (<code>frames.js</code>) that is
+used to visualize packets using a web browser, you can use
+<strong><a href="tools/debug.html">tools/debug.html</a></strong> to load and analyze the generated
+<code>frames.js</code> file: <img alt="Example" src="debug-frames.png" />.</p>
+<h2 id="how-this-program-works">How this program works?<a class="headerlink" href="#how-this-program-works" title="Permanent link">&para;</a></h2>
+<p>The code is very documented and written in order to be easy to understand. <br>
+For the diligent programmer with a <em>Mode S</em> specification at hand, it should be
+trivial to understand how it works.</p>
+<p>The algorithms I used were obtained basically looking at many messages
+as displayed using a throw-away SDL program, and trying to model the algorithm
+based on how the messages look graphically.</p>
+<h2 id="how-to-test-the-program">How to test the program?<a class="headerlink" href="#how-to-test-the-program" title="Permanent link">&para;</a></h2>
+<p>If you have an RTL-SDR device and you happen to be in an area where there
+are aircrafts flying over your head, just run the program and check for signals.</p>
+<p>If however you don't have an RTL-SDR device, or if in your area the presence
+of aircrafts is very limited, you may want to try it with the sample file under
+the <strong><a href="testfiles/">testfiles</a></strong> directory. Run it like this: <br></p>
+<div class="language-text highlight"><pre><span></span><code>c:\dev\Dump1090&gt; dump1090 &lt;other-options&gt; --ifile testfiles/modes1.bin
+</code></pre></div>
+<h2 id="what-is-strip-mode">What is <code>--strip</code> mode?<a class="headerlink" href="#what-is-strip-mode" title="Permanent link">&para;</a></h2>
+<p>A simple filter that will take raw 8-bit IQ samples on input and output a file
+missing the I/Q parts that were below the specified <code>--strip level</code>. And if
+those I/Q samples were below limit for at least 32 samples. <br>
+Can be used like: <code>type big.bin | dump1090 --strip 25 &gt; small.bin</code></p>
+<p>The <code>--strip</code> mode was used to create e.g. <strong><a href="testfiles/modes1.bin">testfiles/modes1.bin</a></strong>.</p>
+<h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
+<p><em>Dump1090</em> was written during some free time during xmas 2012, it is an hobby
+project so I'll be able to address issues and improve it only during
+free time, however you are encouraged to send pull requests in order to
+improve the program. A good starting point can be the TODO list included in
+the source distribution.</p>
+<h2 id="credits">Credits<a class="headerlink" href="#credits" title="Permanent link">&para;</a></h2>
+<p><em>Dump1090</em> was written by <strong><a href="mailto:antirez@gmail.com">Salvatore Sanfilippo</a></strong> and is
+released under the BSD three clause license.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "navigation.expand", "navigation.footer", "navigation.indexes", "navigation.tabs", "navigation.tabs.sticky", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+    
+  </body>
+</html>
