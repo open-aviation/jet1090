@@ -709,10 +709,14 @@
 </div>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <p>The prebuilt binaries are compiled with all features activated. In particular, support for RTL-SDR is provided through SoapySDR which may require extra dependencies.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="ubuntu" name="__tabbed_2" type="radio" /><input id="homebrew_1" name="__tabbed_2" type="radio" /><input id="windows" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="ubuntu">Ubuntu</label><label for="homebrew_1">Homebrew</label><label for="windows">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="ubuntu" name="__tabbed_2" type="radio" /><input id="arch-linux" name="__tabbed_2" type="radio" /><input id="homebrew_1" name="__tabbed_2" type="radio" /><input id="windows" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="ubuntu">Ubuntu</label><label for="arch-linux">Arch Linux</label><label for="homebrew_1">Homebrew</label><label for="windows">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="language-sh highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libsoapysdr-dev<span class="w"> </span>soapysdr-module-rtlsdr
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-sh highlight"><pre><span></span><code>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>soapyrtlsdr
 </code></pre></div>
 </div>
 <div class="tabbed-block">

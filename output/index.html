@@ -746,13 +746,13 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="pandas-python" name="__tabbed_1" type="radio" /><input id="polars-python" name="__tabbed_1" type="radio" /><input id="polars-rust" name="__tabbed_1" type="radio" /><input id="javascript" name="__tabbed_1" type="radio" /><input id="r" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="pandas-python">Pandas (Python)</label><label for="polars-python">Polars (Python)</label><label for="polars-rust">Polars (Rust)</label><label for="javascript">JavaScript</label><label for="r">R</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-python highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="language-python highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s2">&quot;output.jsonl&quot;</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-python highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
+<div class="language-python highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_ndjson</span><span class="p">(</span><span class="s2">&quot;output.jsonl&quot;</span><span class="p">)</span>
 </code></pre></div>
