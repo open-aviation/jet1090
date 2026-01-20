@@ -612,6 +612,39 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#plutosdr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PlutoSDR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#soapysdr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SoapySDR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iq-file-offline-decoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IQ File (Offline Decoding)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#beast-format" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -734,6 +767,39 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#plutosdr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PlutoSDR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#soapysdr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SoapySDR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iq-file-offline-decoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IQ File (Offline Decoding)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#beast-format" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -827,13 +893,249 @@
 <p>Otherwise, <strong>do not</strong> include that line, and set as many sources as you need with the <code>[[sources]]</code> header.</p>
 </div>
 <h3 id="rtl-sdr">RTL-SDR<a class="headerlink" href="#rtl-sdr" title="Permanent link">&para;</a></h3>
-<p>The following entry is equivalent to <code>rtlsdr://serial=00000001@LFBO</code> except that it sets an alias <code>rtl-sdr</code>:</p>
+<p>RTL-SDR devices can be configured by device index:</p>
+<p>RTL-SDR devices are configured using a structured format in TOML.</p>
+<p><strong>Device selection by index:</strong></p>
 <div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
-<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;rtl-sdr&quot;</span>
-<span class="n">rtlsdr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;serial=00000001&quot;</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;rtl-sdr-first&quot;</span>
+<span class="n">rtlsdr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}</span>
 <span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;LFBO&quot;</span>
 </code></pre></div>
+<p><strong>Device selection by serial number:</strong></p>
+<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;rtl-sdr-by-serial&quot;</span>
+<span class="n">rtlsdr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">serial</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;00000001&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;LFBO&quot;</span>
+</code></pre></div>
+<p><strong>Device selection with multiple filters:</strong></p>
+<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;rtl-sdr-filtered&quot;</span>
+<span class="n">rtlsdr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">serial</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;00000001&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">manufacturer</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;Realtek&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">product</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;RTL2838UHIDIR&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;EHAM&quot;</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">RTL-SDR Device Selection</p>
+<p>RTL-SDR devices can be selected using the following fields:</p>
+<ul>
+<li><strong>device</strong>: Device index (0, 1, 2, ...) - <code>rtlsdr = { device = 0 }</code></li>
+<li><strong>serial</strong>: Serial number - <code>rtlsdr = { serial = "00000001" }</code></li>
+<li><strong>manufacturer</strong>: Manufacturer name - <code>rtlsdr = { manufacturer = "Realtek" }</code></li>
+<li><strong>product</strong>: Product name - <code>rtlsdr = { product = "RTL2838UHIDIR" }</code></li>
+</ul>
+<p>You can combine filters (serial, manufacturer, product) for precise device matching. 
+All specified filters must match for the device to be selected. This is useful when 
+you have multiple RTL-SDR devices and want to ensure you always connect to the same 
+physical device, regardless of USB port order.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Gain Configuration</p>
+<p>You can set a custom gain value for SDR devices using the <code>gain</code> parameter:</p>
+<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;rtl-sdr-custom-gain&quot;</span>
+<span class="n">rtlsdr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}</span>
+<span class="n">gain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">42.5</span>
+<span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;LFBO&quot;</span>
+</code></pre></div>
+<p>Default gain values:
+- <strong>RTL-SDR</strong>: 49.6 dB (optimized for ADS-B reception)
+- <strong>PlutoSDR</strong>: 73.0 dB
+- <strong>SoapySDR</strong>: 49.6 dB (same as RTL-SDR)</p>
+<p>If not specified, the default value for each device type will be used.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Bias-Tee Configuration (RTL-SDR and SoapySDR)</p>
+<p>Enable bias-tee to provide power to an external Low Noise Amplifier (LNA):</p>
+<p><strong>RTL-SDR:</strong>
+<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;rtl-sdr-with-lna&quot;</span>
+<span class="n">rtlsdr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}</span>
+<span class="n">bias_tee</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">gain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">42.5</span>
+<span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;LFBO&quot;</span>
+</code></pre></div></p>
+<p><strong>SoapySDR:</strong>
+<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;soapy-rtlsdr-with-lna&quot;</span>
+<span class="n">soapy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;driver=rtlsdr&quot;</span>
+<span class="n">bias_tee</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">gain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">42.5</span>
+<span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;LFBO&quot;</span>
+</code></pre></div></p>
+<p><strong>Default</strong>: <code>false</code> (disabled)</p>
+<div class="admonition warning">
+<p class="admonition-title">Hardware Safety</p>
+<p>Only enable bias-tee if you have an LNA that requires power. 
+Enabling it without proper equipment can damage your hardware.</p>
+<p>Note: Bias-tee support in SoapySDR depends on the underlying driver.
+It's primarily supported when using SoapySDR with RTL-SDR devices.</p>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Command-line Usage</p>
+<p>When using RTL-SDR from the command line, you can use simple formats:</p>
+<div class="language-bash highlight"><pre><span></span><code><span class="c1"># By device index</span>
+jet1090<span class="w"> </span>rtlsdr://0
+jet1090<span class="w"> </span>rtlsdr://1
+
+<span class="c1"># By serial number  </span>
+jet1090<span class="w"> </span>rtlsdr://serial<span class="o">=</span><span class="m">00000001</span>
+
+<span class="c1"># Default device (device 0)</span>
+jet1090<span class="w"> </span>rtlsdr://
+
+<span class="c1"># With custom gain</span>
+jet1090<span class="w"> </span>rtlsdr://0?gain<span class="o">=</span><span class="m">40</span>
+
+<span class="c1"># With bias-tee enabled</span>
+jet1090<span class="w"> </span>rtlsdr://0?bias_tee<span class="o">=</span><span class="nb">true</span>
+
+<span class="c1"># With location (airport code) - using ? or @ syntax</span>
+jet1090<span class="w"> </span>rtlsdr://0?LFBO
+jet1090<span class="w"> </span>rtlsdr://0@LFBO
+
+<span class="c1"># Combining gain and location</span>
+jet1090<span class="w"> </span>rtlsdr://0?LFBO<span class="p">&amp;</span><span class="nv">gain</span><span class="o">=</span><span class="m">42</span>.5
+jet1090<span class="w"> </span>rtlsdr://0@LFBO<span class="p">&amp;</span><span class="nv">gain</span><span class="o">=</span><span class="m">42</span>.5
+
+<span class="c1"># Combining all parameters</span>
+jet1090<span class="w"> </span>rtlsdr://0?LFBO<span class="p">&amp;</span><span class="nv">gain</span><span class="o">=</span><span class="m">42</span>.5<span class="p">&amp;</span><span class="nv">bias_tee</span><span class="o">=</span><span class="nb">true</span>
+</code></pre></div>
+</div>
 <p>The <code>airport</code> parameter replaces the <code>latitude</code> and <code>longitude</code> parameter if they are not present.</p>
+<h3 id="plutosdr">PlutoSDR<a class="headerlink" href="#plutosdr" title="Permanent link">&para;</a></h3>
+<p>PlutoSDR devices can be configured via IP, hostname, or USB connection.</p>
+<p><strong>Note</strong>: The PlutoSDR library requires URIs in the format <code>ip:address</code> or <code>usb:device</code>. When you provide a simple IP address or hostname (e.g., <code>192.168.2.1</code> or <code>pluto.local</code>), jet1090 automatically adds the <code>ip:</code> prefix.</p>
+<p>For IP connection (most common):</p>
+<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pluto&quot;</span>
+<span class="n">pluto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;192.168.2.1&quot;</span>
+<span class="n">latitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">43.5993189</span>
+<span class="n">longitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.4362472</span>
+<span class="n">altitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">151.0</span>
+</code></pre></div>
+<p>For hostname-based connection:</p>
+<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pluto&quot;</span>
+<span class="n">pluto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pluto.local&quot;</span>
+<span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;LFBO&quot;</span>
+</code></pre></div>
+<p>You can also use the explicit <code>ip:</code> prefix with IP addresses or hostnames:</p>
+<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pluto&quot;</span>
+<span class="n">pluto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ip:192.168.2.1&quot;</span>
+<span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;LFBO&quot;</span>
+</code></pre></div>
+<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pluto&quot;</span>
+<span class="n">pluto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ip:pluto.local&quot;</span>
+<span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;LFBO&quot;</span>
+</code></pre></div>
+<p>For USB-connected PlutoSDR:</p>
+<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pluto&quot;</span>
+<span class="n">pluto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;usb:&quot;</span>
+<span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;EHAM&quot;</span>
+</code></pre></div>
+<p>Or with a specific USB device (for USB devices with version numbers like <code>usb:1.18.5</code>, use command-line format <code>pluto:///usb:1.18.5</code>):</p>
+<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pluto&quot;</span>
+<span class="n">pluto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;usb:1.18.5&quot;</span>
+<span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;EHAM&quot;</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Command-line formats</p>
+<p>When specifying PlutoSDR devices from the command line:</p>
+<div class="language-bash highlight"><pre><span></span><code><span class="c1"># IP address or hostname (simple format - ip: prefix added automatically)</span>
+jet1090<span class="w"> </span>pluto://192.168.2.1
+jet1090<span class="w"> </span>pluto://pluto.local
+
+<span class="c1"># With explicit ip: prefix (use triple slashes for URIs with colons)</span>
+jet1090<span class="w"> </span>pluto:///ip:192.168.2.1
+jet1090<span class="w"> </span>pluto:///ip:pluto.local
+
+<span class="c1"># USB device (use triple slashes for URIs with colons)</span>
+jet1090<span class="w"> </span>pluto:///usb:1.7.5
+</code></pre></div>
+<p>In TOML configuration files, you can use the URI directly without the triple slashes.</p>
+</div>
+<h3 id="soapysdr">SoapySDR<a class="headerlink" href="#soapysdr" title="Permanent link">&para;</a></h3>
+<p>SoapySDR devices can be configured with driver arguments:</p>
+<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;soapy-rtlsdr&quot;</span>
+<span class="n">soapy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;driver=rtlsdr&quot;</span>
+<span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;LFBO&quot;</span>
+</code></pre></div>
+<p>With custom gain and bias-tee:</p>
+<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;soapy-rtlsdr-with-lna&quot;</span>
+<span class="n">soapy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;driver=rtlsdr&quot;</span>
+<span class="n">gain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">42.5</span>
+<span class="n">bias_tee</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;LFBO&quot;</span>
+</code></pre></div>
+<p>Or with other SoapySDR-compatible devices:</p>
+<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;soapy-hackrf&quot;</span>
+<span class="n">soapy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;driver=hackrf&quot;</span>
+<span class="n">latitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">51.4706</span>
+<span class="n">longitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">-0.4619</span>
+</code></pre></div>
+<h3 id="iq-file-offline-decoding">IQ File (Offline Decoding)<a class="headerlink" href="#iq-file-offline-decoding" title="Permanent link">&para;</a></h3>
+<p>You can decode pre-recorded IQ files captured from SDR devices. This is useful for:
+- Testing and debugging ADS-B decoding without live hardware
+- Processing historical recordings
+- Offline analysis and development</p>
+<p><strong>Supported IQ formats:</strong></p>
+<ul>
+<li><strong>cu8</strong>: Complex unsigned 8-bit (RTL-SDR default format)</li>
+<li>Range: 0-255, where 127.5 represents zero</li>
+<li>Most common format from <code>rtl_sdr</code> command</li>
+<li><strong>cs8</strong>: Complex signed 8-bit</li>
+<li>Range: -128 to 127</li>
+<li><strong>cs16</strong>: Complex signed 16-bit little-endian</li>
+<li>Range: -32768 to 32767</li>
+</ul>
+<p><strong>TOML Configuration:</strong></p>
+<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
+<span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/path/to/recording.iq&quot;</span>
+<span class="n">iq_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;cu8&quot;</span><span class="w">  </span><span class="c1"># Optional, defaults to &quot;cu8&quot;</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Recording 2024-01-19&quot;</span>
+<span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;LFBO&quot;</span>
+</code></pre></div>
+<p>With tilde expansion:</p>
+<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
+<span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;~/adsb-recordings/flight-2024-01-19.iq&quot;</span>
+<span class="n">iq_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;cu8&quot;</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Historical Flight&quot;</span>
+<span class="n">latitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">43.5993189</span>
+<span class="n">longitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.4362472</span>
+</code></pre></div>
+<p><strong>Command-line Usage:</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span class="c1"># With absolute path</span>
+jet1090<span class="w"> </span><span class="s2">&quot;file:///home/user/adsb.iq?format=cu8&quot;</span>
+
+<span class="c1"># With tilde expansion</span>
+jet1090<span class="w"> </span><span class="s2">&quot;file://~/recordings/adsb.iq?format=cu8&quot;</span>
+
+<span class="c1"># Default format (cu8) - format parameter optional</span>
+jet1090<span class="w"> </span><span class="s2">&quot;file:///path/to/file.iq&quot;</span>
+
+<span class="c1"># With location context</span>
+jet1090<span class="w"> </span><span class="s2">&quot;file://~/adsb.iq?format=cu8&amp;LFBO&quot;</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Recording IQ files</p>
+<p>You can create IQ files using the <code>rtl_sdr</code> command (from rtl-sdr tools):</p>
+<div class="language-bash highlight"><pre><span></span><code><span class="c1"># Record 60 seconds at 1090 MHz with 2.4 MS/s sample rate</span>
+rtl_sdr<span class="w"> </span>-f<span class="w"> </span>1090M<span class="w"> </span>-s<span class="w"> </span><span class="m">2</span>.4M<span class="w"> </span>-g<span class="w"> </span><span class="m">49</span>.6<span class="w"> </span>-n<span class="w"> </span><span class="m">288000000</span><span class="w"> </span>adsb.iq
+</code></pre></div>
+<p>The file will be in cu8 format by default, which is directly compatible with jet1090.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Playback Behavior</p>
+<p>The IQ file is read sequentially from beginning to end. When the file ends, decoding stops. 
+The playback simulates real-time reception at the configured sample rate (2.4 MS/s for ADS-B).</p>
+</div>
 <h3 id="beast-format">Beast format<a class="headerlink" href="#beast-format" title="Permanent link">&para;</a></h3>
 <p>External sources can be configured with the <code>tcp</code>, <code>udp</code> or <code>websocket</code> fields.</p>
 <div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
