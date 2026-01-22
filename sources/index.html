@@ -535,6 +535,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#soapysdr-devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SoapySDR devices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plutosdr-devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PlutoSDR devices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#beast-format" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -722,6 +744,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#soapysdr-devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SoapySDR devices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plutosdr-devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PlutoSDR devices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#beast-format" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -808,17 +852,14 @@
 <p>The most common source is the RTL-SDR dongle.</p>
 <p><img alt="rtl-sdr dongle" src="../images/rtlsdr.png" style="height:150px" /></p>
 <p><code>jet1090</code> must be <a href="../install/">compiled with the <code>rtlsdr</code> feature</a> in order to support RTL-SDR dongles.</p>
-<p>You can check whether <code>jet1090</code> detects your dongle:</p>
-<div class="language-sh highlight"><pre><span></span><code>$<span class="w"> </span>jet1090<span class="w"> </span>--discover<span class="o">=</span>rtlsdr
-Detached<span class="w"> </span>kernel<span class="w"> </span>driver
-Found<span class="w"> </span>Rafael<span class="w"> </span>Micro<span class="w"> </span>R820T<span class="w"> </span>tuner
-Reattached<span class="w"> </span>kernel<span class="w"> </span>driver
-<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>Opening<span class="w"> </span>Generic<span class="w"> </span>RTL2832U<span class="w"> </span>OEM<span class="w"> </span>::<span class="w"> </span><span class="m">00000001</span>...
-Detached<span class="w"> </span>kernel<span class="w"> </span>driver
-Found<span class="w"> </span>Rafael<span class="w"> </span>Micro<span class="w"> </span>R820T<span class="w"> </span>tuner
-Reattached<span class="w"> </span>kernel<span class="w"> </span>driver
+<p>Before running <code>jet1090</code>, you can verify your dongle is detected by the system:</p>
+<div class="language-sh highlight"><pre><span></span><code><span class="c1"># Test RTL-SDR detection and capability</span>
+rtl_test<span class="w"> </span>-t
+
+<span class="c1"># View device information</span>
+rtl_eeprom
 </code></pre></div>
-<p>You can then start decoding incoming messages. Use the <code>--verbose</code> option to check it is working well.</p>
+<p>Once verified, start decoding incoming messages. Use the <code>--verbose</code> option to check it is working well.</p>
 <div class="language-sh highlight"><pre><span></span><code>$<span class="w"> </span>jet1090<span class="w"> </span>--verbose<span class="w"> </span>rtlsdr://
 Found<span class="w"> </span>Rafael<span class="w"> </span>Micro<span class="w"> </span>R820T<span class="w"> </span>tuner
 <span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>Opening<span class="w"> </span>Generic<span class="w"> </span>RTL2832U<span class="w"> </span>OEM<span class="w"> </span>::<span class="w"> </span><span class="m">00000001</span>...
@@ -847,6 +888,40 @@ jet1090<span class="w"> </span>--verbose<span class="w"> </span>rtlsdr://@LHR<sp
 <div class="language-sh highlight"><pre><span></span><code>jet1090<span class="w"> </span>rtlsdr://serial<span class="o">=</span><span class="m">00000001</span><span class="w"> </span>rtlsdr://serial<span class="o">=</span><span class="m">00000002</span>
 </code></pre></div>
 </div>
+<h2 id="soapysdr-devices">SoapySDR devices<a class="headerlink" href="#soapysdr-devices" title="Permanent link">&para;</a></h2>
+<p><code>jet1090</code> must be <a href="../install/">compiled with the <code>soapy</code> feature</a> to support SoapySDR-compatible devices (HackRF, LimeSDR, etc.).</p>
+<p>Before running <code>jet1090</code>, verify your SoapySDR device is detected:</p>
+<div class="language-sh highlight"><pre><span></span><code><span class="c1"># Find all SoapySDR devices</span>
+SoapySDRUtil<span class="w"> </span>--find
+
+<span class="c1"># Probe a specific device for details</span>
+SoapySDRUtil<span class="w"> </span>--probe
+</code></pre></div>
+<p>Once verified, start decoding:</p>
+<div class="language-sh highlight"><pre><span></span><code>jet1090<span class="w"> </span>--verbose<span class="w"> </span>soapy://driver<span class="o">=</span>rtlsdr
+jet1090<span class="w"> </span>--verbose<span class="w"> </span>soapy://driver<span class="o">=</span>hackrf
+</code></pre></div>
+<p>For more details on SoapySDR configuration options, see the <a href="../config/#soapysdr">configuration documentation</a>.</p>
+<h2 id="plutosdr-devices">PlutoSDR devices<a class="headerlink" href="#plutosdr-devices" title="Permanent link">&para;</a></h2>
+<p><code>jet1090</code> must be <a href="../install/">compiled with the <code>pluto</code> feature</a> to support Adalm-Pluto SDR devices.</p>
+<p>Before running <code>jet1090</code>, verify your PlutoSDR is accessible:</p>
+<div class="language-sh highlight"><pre><span></span><code><span class="c1"># For network-connected PlutoSDR</span>
+iio_info<span class="w"> </span>-n<span class="w"> </span><span class="m">192</span>.168.2.1
+
+<span class="c1"># Or access the web interface</span>
+<span class="c1"># Navigate to http://pluto.local in your browser</span>
+</code></pre></div>
+<p>Once verified, start decoding:</p>
+<div class="language-sh highlight"><pre><span></span><code><span class="c1"># By IP address</span>
+jet1090<span class="w"> </span>--verbose<span class="w"> </span>pluto://192.168.2.1
+
+<span class="c1"># By hostname</span>
+jet1090<span class="w"> </span>--verbose<span class="w"> </span>pluto://pluto.local
+
+<span class="c1"># By USB (if connected via USB)</span>
+jet1090<span class="w"> </span>--verbose<span class="w"> </span>pluto:///usb:
+</code></pre></div>
+<p>For more details on PlutoSDR configuration options, see the <a href="../config/#plutosdr">configuration documentation</a>.</p>
 <h2 id="beast-format">Beast format<a class="headerlink" href="#beast-format" title="Permanent link">&para;</a></h2>
 <h3 id="tcp">TCP<a class="headerlink" href="#tcp" title="Permanent link">&para;</a></h3>
 <p>Most decoders share the data they decode in the Beast binary format which contains timestamp information, signal level information (rssi) and Mode S short or long messages.</p>
