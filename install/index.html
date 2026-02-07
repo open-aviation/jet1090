@@ -748,13 +748,12 @@
 
 <h1 id="installation-instructions">Installation instructions<a class="headerlink" href="#installation-instructions" title="Permanent link">&para;</a></h1>
 <p>The latest release and installation instructions are published <a href="https://github.com/xoolive/jet1090/releases/">on GitHub Releases</a>.</p>
-<p>Current version is v0.4.1</p>
 <h2 id="install-prebuilt-binaries">Install prebuilt binaries<a class="headerlink" href="#install-prebuilt-binaries" title="Permanent link">&para;</a></h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="shell-script" name="__tabbed_1" type="radio" /><input id="powershell-windows" name="__tabbed_1" type="radio" /><input id="homebrew" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="shell-script">Shell script</label><label for="powershell-windows">Powershell (Windows)</label><label for="homebrew">Homebrew</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>This script requires that you install the <a href="#dependencies">SoapySDR dependencies</a>.</p>
-<div class="language-sh highlight"><pre><span></span><code>curl<span class="w"> </span>--proto<span class="w"> </span><span class="s1">&#39;=https&#39;</span><span class="w"> </span>--tlsv1.2<span class="w"> </span>-LsSf<span class="w"> </span>https://github.com/xoolive/jet1090/releases/download/v0.4.14/jet1090-installer.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+<div class="language-sh highlight"><pre><span></span><code>curl<span class="w"> </span>--proto<span class="w"> </span><span class="s1">&#39;=https&#39;</span><span class="w"> </span>--tlsv1.2<span class="w"> </span>-LsSf<span class="w"> </span>https://github.com/xoolive/jet1090/releases/latest/download/jet1090-installer.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
 </code></pre></div>
 <p>Update to next release with:</p>
 <div class="language-sh highlight"><pre><span></span><code>jet1090-update
@@ -762,7 +761,7 @@
 </div>
 <div class="tabbed-block">
 <p>This script requires that you install the <a href="#dependencies">SoapySDR dependencies</a>.</p>
-<div class="language-sh highlight"><pre><span></span><code>powershell<span class="w"> </span>-ExecutionPolicy<span class="w"> </span>ByPass<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;irm https://github.com/xoolive/jet1090/releases/download/v0.4.14/jet1090-installer.ps1 | iex&quot;</span>
+<div class="language-sh highlight"><pre><span></span><code>powershell<span class="w"> </span>-ExecutionPolicy<span class="w"> </span>ByPass<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;irm https://github.com/xoolive/jet1090/releases/latest/download/jet1090-installer.ps1 | iex&quot;</span>
 </code></pre></div>
 <p>Update to next release with:</p>
 <div class="language-sh highlight"><pre><span></span><code>jet1090-update
