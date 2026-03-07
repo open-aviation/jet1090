@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
     
     
       
@@ -535,10 +535,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#soapysdr-devices" class="md-nav__link">
+  <a href="#airspy-devices" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SoapySDR devices
+        Airspy devices
       
     </span>
   </a>
@@ -546,10 +546,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#plutosdr-devices" class="md-nav__link">
+  <a href="#soapysdr-devices" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PlutoSDR devices
+        SoapySDR devices
       
     </span>
   </a>
@@ -744,10 +744,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#soapysdr-devices" class="md-nav__link">
+  <a href="#airspy-devices" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SoapySDR devices
+        Airspy devices
       
     </span>
   </a>
@@ -755,10 +755,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#plutosdr-devices" class="md-nav__link">
+  <a href="#soapysdr-devices" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PlutoSDR devices
+        SoapySDR devices
       
     </span>
   </a>
@@ -888,8 +888,25 @@ jet1090<span class="w"> </span>--verbose<span class="w"> </span>rtlsdr://@LHR<sp
 <div class="language-sh highlight"><pre><span></span><code>jet1090<span class="w"> </span>rtlsdr://serial<span class="o">=</span><span class="m">00000001</span><span class="w"> </span>rtlsdr://serial<span class="o">=</span><span class="m">00000002</span>
 </code></pre></div>
 </div>
+<h2 id="airspy-devices">Airspy devices<a class="headerlink" href="#airspy-devices" title="Permanent link">&para;</a></h2>
+<p><code>jet1090</code> must be <a href="../install/">compiled with the <code>airspy</code> feature</a> to support <a href="https://airspy.com/airspy-mini/">Airspy Mini</a>, <a href="https://airspy.com/airspy-r2/">Airspy R2</a> or <a href="https://airspy.com/airspy-hf-discovery/">Airspy HF+</a> devices.</p>
+<p><img alt="airspy mini dongle" src="images/airspy_mini.png" style="height:150px" /></p>
+<p>Before running <code>jet1090</code>, verify your Airspy is detected:</p>
+<div class="language-sh highlight"><pre><span></span><code>airspy_info
+</code></pre></div>
+<p>Once verified, start decoding:</p>
+<div class="language-sh highlight"><pre><span></span><code><span class="c1"># Default device (index 0)</span>
+jet1090<span class="w"> </span>--verbose<span class="w"> </span>airspy://
+
+<span class="c1"># Explicit device index</span>
+jet1090<span class="w"> </span>--verbose<span class="w"> </span>airspy://1
+
+<span class="c1"># By serial</span>
+jet1090<span class="w"> </span>--verbose<span class="w"> </span>airspy://serial<span class="o">=</span>0x35AC63DC2D8C7A4F
+</code></pre></div>
+<p>For more details on Airspy configuration options, see the <a href="../config/#sources">configuration documentation</a>.</p>
 <h2 id="soapysdr-devices">SoapySDR devices<a class="headerlink" href="#soapysdr-devices" title="Permanent link">&para;</a></h2>
-<p><code>jet1090</code> must be <a href="../install/">compiled with the <code>soapy</code> feature</a> to support SoapySDR-compatible devices (HackRF, LimeSDR, etc.).</p>
+<p><code>jet1090</code> must be <a href="../install/">compiled with the <code>soapy</code> feature</a> to support SoapySDR-compatible devices (HackRF, LimeSDR, PlutoSDR, etc.).</p>
 <p>Before running <code>jet1090</code>, verify your SoapySDR device is detected:</p>
 <div class="language-sh highlight"><pre><span></span><code><span class="c1"># Find all SoapySDR devices</span>
 SoapySDRUtil<span class="w"> </span>--find
@@ -900,28 +917,9 @@ SoapySDRUtil<span class="w"> </span>--probe
 <p>Once verified, start decoding:</p>
 <div class="language-sh highlight"><pre><span></span><code>jet1090<span class="w"> </span>--verbose<span class="w"> </span>soapy://driver<span class="o">=</span>rtlsdr
 jet1090<span class="w"> </span>--verbose<span class="w"> </span>soapy://driver<span class="o">=</span>hackrf
+jet1090<span class="w"> </span>--verbose<span class="w"> </span>soapy://driver<span class="o">=</span>plutosdr
 </code></pre></div>
 <p>For more details on SoapySDR configuration options, see the <a href="../config/#soapysdr">configuration documentation</a>.</p>
-<h2 id="plutosdr-devices">PlutoSDR devices<a class="headerlink" href="#plutosdr-devices" title="Permanent link">&para;</a></h2>
-<p><code>jet1090</code> must be <a href="../install/">compiled with the <code>pluto</code> feature</a> to support Adalm-Pluto SDR devices.</p>
-<p>Before running <code>jet1090</code>, verify your PlutoSDR is accessible:</p>
-<div class="language-sh highlight"><pre><span></span><code><span class="c1"># For network-connected PlutoSDR</span>
-iio_info<span class="w"> </span>-n<span class="w"> </span><span class="m">192</span>.168.2.1
-
-<span class="c1"># Or access the web interface</span>
-<span class="c1"># Navigate to http://pluto.local in your browser</span>
-</code></pre></div>
-<p>Once verified, start decoding:</p>
-<div class="language-sh highlight"><pre><span></span><code><span class="c1"># By IP address</span>
-jet1090<span class="w"> </span>--verbose<span class="w"> </span>pluto://192.168.2.1
-
-<span class="c1"># By hostname</span>
-jet1090<span class="w"> </span>--verbose<span class="w"> </span>pluto://pluto.local
-
-<span class="c1"># By USB (if connected via USB)</span>
-jet1090<span class="w"> </span>--verbose<span class="w"> </span>pluto:///usb:
-</code></pre></div>
-<p>For more details on PlutoSDR configuration options, see the <a href="../config/#plutosdr">configuration documentation</a>.</p>
 <h2 id="beast-format">Beast format<a class="headerlink" href="#beast-format" title="Permanent link">&para;</a></h2>
 <h3 id="tcp">TCP<a class="headerlink" href="#tcp" title="Permanent link">&para;</a></h3>
 <p>Most decoders share the data they decode in the Beast binary format which contains timestamp information, signal level information (rssi) and Mode S short or long messages.</p>

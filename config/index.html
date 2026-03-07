@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
     
     
       
@@ -612,10 +612,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#plutosdr" class="md-nav__link">
+  <a href="#airspy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PlutoSDR
+        Airspy
       
     </span>
   </a>
@@ -767,10 +767,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#plutosdr" class="md-nav__link">
+  <a href="#airspy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PlutoSDR
+        Airspy
       
     </span>
   </a>
@@ -938,7 +938,7 @@ physical device, regardless of USB port order.</p>
 </code></pre></div>
 <p>Default gain values:
 - <strong>RTL-SDR</strong>: 49.6 dB (optimized for ADS-B reception)
-- <strong>PlutoSDR</strong>: 73.0 dB
+- <strong>Airspy</strong>: auto gain
 - <strong>SoapySDR</strong>: 49.6 dB (same as RTL-SDR)</p>
 <p>If not specified, the default value for each device type will be used.</p>
 </div>
@@ -1002,61 +1002,26 @@ jet1090<span class="w"> </span>rtlsdr://0?LFBO<span class="p">&amp;</span><span 
 </code></pre></div>
 </div>
 <p>The <code>airport</code> parameter replaces the <code>latitude</code> and <code>longitude</code> parameter if they are not present.</p>
-<h3 id="plutosdr">PlutoSDR<a class="headerlink" href="#plutosdr" title="Permanent link">&para;</a></h3>
-<p>PlutoSDR devices can be configured via IP, hostname, or USB connection.</p>
-<p><strong>Note</strong>: The PlutoSDR library requires URIs in the format <code>ip:address</code> or <code>usb:device</code>. When you provide a simple IP address or hostname (e.g., <code>192.168.2.1</code> or <code>pluto.local</code>), jet1090 automatically adds the <code>ip:</code> prefix.</p>
-<p>For IP connection (most common):</p>
+<h3 id="airspy">Airspy<a class="headerlink" href="#airspy" title="Permanent link">&para;</a></h3>
+<p>Airspy devices can be selected by index or serial number:</p>
 <div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
-<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pluto&quot;</span>
-<span class="n">pluto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;192.168.2.1&quot;</span>
-<span class="n">latitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">43.5993189</span>
-<span class="n">longitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.4362472</span>
-<span class="n">altitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">151.0</span>
-</code></pre></div>
-<p>For hostname-based connection:</p>
-<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
-<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pluto&quot;</span>
-<span class="n">pluto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pluto.local&quot;</span>
-<span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;LFBO&quot;</span>
-</code></pre></div>
-<p>You can also use the explicit <code>ip:</code> prefix with IP addresses or hostnames:</p>
-<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
-<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pluto&quot;</span>
-<span class="n">pluto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ip:192.168.2.1&quot;</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;airspy-default&quot;</span>
+<span class="n">airspy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}</span>
+<span class="n">sample_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">6.0e6</span>
 <span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;LFBO&quot;</span>
 </code></pre></div>
 <div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
-<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pluto&quot;</span>
-<span class="n">pluto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ip:pluto.local&quot;</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;airspy-by-serial&quot;</span>
+<span class="n">airspy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">serial</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;0x35AC63DC2D8C7A4F&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="n">sample_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">6.0e6</span>
 <span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;LFBO&quot;</span>
 </code></pre></div>
-<p>For USB-connected PlutoSDR:</p>
-<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
-<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pluto&quot;</span>
-<span class="n">pluto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;usb:&quot;</span>
-<span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;EHAM&quot;</span>
+<div class="admonition note">
+<p class="admonition-title">Command-line Usage</p>
+<div class="language-bash highlight"><pre><span></span><code>jet1090<span class="w"> </span>airspy://
+jet1090<span class="w"> </span>airspy://1
+jet1090<span class="w"> </span>airspy://serial<span class="o">=</span>0x35AC63DC2D8C7A4F
 </code></pre></div>
-<p>Or with a specific USB device (for USB devices with version numbers like <code>usb:1.18.5</code>, use command-line format <code>pluto:///usb:1.18.5</code>):</p>
-<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
-<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pluto&quot;</span>
-<span class="n">pluto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;usb:1.18.5&quot;</span>
-<span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;EHAM&quot;</span>
-</code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Command-line formats</p>
-<p>When specifying PlutoSDR devices from the command line:</p>
-<div class="language-bash highlight"><pre><span></span><code><span class="c1"># IP address or hostname (simple format - ip: prefix added automatically)</span>
-jet1090<span class="w"> </span>pluto://192.168.2.1
-jet1090<span class="w"> </span>pluto://pluto.local
-
-<span class="c1"># With explicit ip: prefix (use triple slashes for URIs with colons)</span>
-jet1090<span class="w"> </span>pluto:///ip:192.168.2.1
-jet1090<span class="w"> </span>pluto:///ip:pluto.local
-
-<span class="c1"># USB device (use triple slashes for URIs with colons)</span>
-jet1090<span class="w"> </span>pluto:///usb:1.7.5
-</code></pre></div>
-<p>In TOML configuration files, you can use the URI directly without the triple slashes.</p>
 </div>
 <h3 id="soapysdr">SoapySDR<a class="headerlink" href="#soapysdr" title="Permanent link">&para;</a></h3>
 <p>SoapySDR devices can be configured with driver arguments:</p>
@@ -1079,6 +1044,12 @@ jet1090<span class="w"> </span>pluto:///usb:1.7.5
 <span class="n">soapy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;driver=hackrf&quot;</span>
 <span class="n">latitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">51.4706</span>
 <span class="n">longitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">-0.4619</span>
+</code></pre></div>
+<p>For PlutoSDR through SoapySDR:</p>
+<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;soapy-pluto&quot;</span>
+<span class="n">soapy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;driver=plutosdr&quot;</span>
+<span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;LFBO&quot;</span>
 </code></pre></div>
 <h3 id="iq-file-offline-decoding">IQ File (Offline Decoding)<a class="headerlink" href="#iq-file-offline-decoding" title="Permanent link">&para;</a></h3>
 <p>You can decode pre-recorded IQ files captured from SDR devices. This is useful for:

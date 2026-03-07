@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
     
     
       
@@ -778,7 +778,7 @@
 </div>
 </div>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
-<p>The prebuilt binaries are compiled with all features activated. In particular, support for RTL-SDR is provided through SoapySDR which may require extra dependencies.</p>
+<p>The prebuilt binaries are compiled with all features activated. In particular, SoapySDR-based sources may require extra dependencies.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="ubuntu" name="__tabbed_2" type="radio" /><input id="arch-linux" name="__tabbed_2" type="radio" /><input id="homebrew_1" name="__tabbed_2" type="radio" /><input id="windows" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="ubuntu">Ubuntu</label><label for="arch-linux">Arch Linux</label><label for="homebrew_1">Homebrew</label><label for="windows">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -808,7 +808,7 @@
 <div class="tabbed-block">
 <p>You will need:</p>
 <ul>
-<li>the SoapySDR dependencies to compile with the <code>rtlsdr</code> feature.</li>
+<li>the SoapySDR dependencies to compile with the <code>soapy</code> feature.</li>
 <li>a protobuf compiler to compile with the <code>sero</code> feature.</li>
 </ul>
 <div class="language-sh highlight"><pre><span></span><code>cargo<span class="w"> </span>install<span class="w"> </span>--all-features<span class="w"> </span>jet1090
