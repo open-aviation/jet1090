@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -524,6 +524,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#software-defined-radio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software-defined radio
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Software-defined radio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#rtl-sdr-dongles" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -533,8 +545,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#airspy-devices" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -544,8 +556,19 @@
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#hackrf-devices" class="md-nav__link">
+    <span class="md-ellipsis">
       
-        <li class="md-nav__item">
+        HackRF devices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#soapysdr-devices" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -553,6 +576,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -733,6 +761,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#software-defined-radio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software-defined radio
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Software-defined radio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#rtl-sdr-dongles" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -742,8 +782,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#airspy-devices" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -753,8 +793,19 @@
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#hackrf-devices" class="md-nav__link">
+    <span class="md-ellipsis">
       
-        <li class="md-nav__item">
+        HackRF devices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#soapysdr-devices" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -762,6 +813,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -848,10 +904,11 @@
 
 <h1 id="sources-of-data">Sources of data<a class="headerlink" href="#sources-of-data" title="Permanent link">&para;</a></h1>
 <p><code>jet1090</code> decodes feeds of Mode S messages coming from a variety of sources.</p>
-<h2 id="rtl-sdr-dongles">RTL-SDR dongles<a class="headerlink" href="#rtl-sdr-dongles" title="Permanent link">&para;</a></h2>
+<h2 id="software-defined-radio">Software-defined radio<a class="headerlink" href="#software-defined-radio" title="Permanent link">&para;</a></h2>
+<h3 id="rtl-sdr-dongles">RTL-SDR dongles<a class="headerlink" href="#rtl-sdr-dongles" title="Permanent link">&para;</a></h3>
 <p>The most common source is the RTL-SDR dongle.</p>
 <p><img alt="rtl-sdr dongle" src="../images/rtlsdr.png" style="height:150px" /></p>
-<p><code>jet1090</code> must be <a href="../install/">compiled with the <code>rtlsdr</code> feature</a> in order to support RTL-SDR dongles.</p>
+<p><code>jet1090</code> must be <a href="../install/">compiled with the <code>rtlsdr</code> feature</a> (default) in order to support RTL-SDR dongles.</p>
 <p>Before running <code>jet1090</code>, you can verify your dongle is detected by the system:</p>
 <div class="language-sh highlight"><pre><span></span><code><span class="c1"># Test RTL-SDR detection and capability</span>
 rtl_test<span class="w"> </span>-t
@@ -861,12 +918,6 @@ rtl_eeprom
 </code></pre></div>
 <p>Once verified, start decoding incoming messages. Use the <code>--verbose</code> option to check it is working well.</p>
 <div class="language-sh highlight"><pre><span></span><code>$<span class="w"> </span>jet1090<span class="w"> </span>--verbose<span class="w"> </span>rtlsdr://
-Found<span class="w"> </span>Rafael<span class="w"> </span>Micro<span class="w"> </span>R820T<span class="w"> </span>tuner
-<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>Opening<span class="w"> </span>Generic<span class="w"> </span>RTL2832U<span class="w"> </span>OEM<span class="w"> </span>::<span class="w"> </span><span class="m">00000001</span>...
-Found<span class="w"> </span>Rafael<span class="w"> </span>Micro<span class="w"> </span>R820T<span class="w"> </span>tuner
-<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>Using<span class="w"> </span>format<span class="w"> </span>CS16.
-Allocating<span class="w"> </span><span class="m">15</span><span class="w"> </span>zero-copy<span class="w"> </span>buffers
-
 <span class="o">{</span><span class="s2">&quot;timestamp&quot;</span>:1735082050.8826132,<span class="s2">&quot;frame&quot;</span>:<span class="s2">&quot;8d34768d58b524b5986843dfee26&quot;</span>,<span class="s2">&quot;df&quot;</span>:<span class="s2">&quot;17&quot;</span>,<span class="s2">&quot;icao24&quot;</span>:<span class="s2">&quot;34768d&quot;</span>,<span class="s2">&quot;bds&quot;</span>:<span class="s2">&quot;05&quot;</span>,<span class="s2">&quot;tc&quot;</span>:11,<span class="s2">&quot;NUCp&quot;</span>:7,<span class="s2">&quot;NICb&quot;</span>:0,<span class="s2">&quot;altitude&quot;</span>:35050,<span class="s2">&quot;source&quot;</span>:<span class="s2">&quot;barometric&quot;</span>,<span class="s2">&quot;parity&quot;</span>:<span class="s2">&quot;odd&quot;</span>,<span class="s2">&quot;lat_cpr&quot;</span>:23244,<span class="s2">&quot;lon_cpr&quot;</span>:26691,<span class="s2">&quot;metadata&quot;</span>:<span class="o">[{</span><span class="s2">&quot;system_timestamp&quot;</span>:1735082050.8826132,<span class="s2">&quot;rssi&quot;</span>:-28.450745,<span class="s2">&quot;serial&quot;</span>:14924845721654670821,<span class="s2">&quot;name&quot;</span>:<span class="s2">&quot;rtlsdr&quot;</span><span class="o">}]}</span>
 <span class="o">{</span><span class="s2">&quot;timestamp&quot;</span>:1735082051.040175,<span class="s2">&quot;frame&quot;</span>:<span class="s2">&quot;8d34768de11200000000002919db&quot;</span>,<span class="s2">&quot;df&quot;</span>:<span class="s2">&quot;17&quot;</span>,<span class="s2">&quot;icao24&quot;</span>:<span class="s2">&quot;34768d&quot;</span>,<span class="s2">&quot;bds&quot;</span>:<span class="s2">&quot;61&quot;</span>,<span class="s2">&quot;subtype&quot;</span>:<span class="s2">&quot;emergency_priority&quot;</span>,<span class="s2">&quot;emergency_state&quot;</span>:<span class="s2">&quot;none&quot;</span>,<span class="s2">&quot;squawk&quot;</span>:<span class="s2">&quot;2010&quot;</span>,<span class="s2">&quot;metadata&quot;</span>:<span class="o">[{</span><span class="s2">&quot;system_timestamp&quot;</span>:1735082051.040175,<span class="s2">&quot;rssi&quot;</span>:-29.93521,<span class="s2">&quot;serial&quot;</span>:14924845721654670821,<span class="s2">&quot;name&quot;</span>:<span class="s2">&quot;rtlsdr&quot;</span><span class="o">}]}</span>
 </code></pre></div>
@@ -888,9 +939,9 @@ jet1090<span class="w"> </span>--verbose<span class="w"> </span>rtlsdr://@LHR<sp
 <div class="language-sh highlight"><pre><span></span><code>jet1090<span class="w"> </span>rtlsdr://serial<span class="o">=</span><span class="m">00000001</span><span class="w"> </span>rtlsdr://serial<span class="o">=</span><span class="m">00000002</span>
 </code></pre></div>
 </div>
-<h2 id="airspy-devices">Airspy devices<a class="headerlink" href="#airspy-devices" title="Permanent link">&para;</a></h2>
-<p><code>jet1090</code> must be <a href="../install/">compiled with the <code>airspy</code> feature</a> to support <a href="https://airspy.com/airspy-mini/">Airspy Mini</a>, <a href="https://airspy.com/airspy-r2/">Airspy R2</a> or <a href="https://airspy.com/airspy-hf-discovery/">Airspy HF+</a> devices.</p>
-<p><img alt="airspy mini dongle" src="images/airspy_mini.png" style="height:150px" /></p>
+<h3 id="airspy-devices">Airspy devices<a class="headerlink" href="#airspy-devices" title="Permanent link">&para;</a></h3>
+<p><code>jet1090</code> must be <a href="../install/">compiled with the <code>airspy</code> feature</a> (default) to support <a href="https://airspy.com/airspy-mini/">Airspy Mini</a>, <a href="https://airspy.com/airspy-r2/">Airspy R2</a> or <a href="https://airspy.com/airspy-hf-discovery/">Airspy HF+</a> devices.</p>
+<p><img alt="airspy mini dongle" src="../images/airspy_mini.png" style="height:150px" /></p>
 <p>Before running <code>jet1090</code>, verify your Airspy is detected:</p>
 <div class="language-sh highlight"><pre><span></span><code>airspy_info
 </code></pre></div>
@@ -899,14 +950,32 @@ jet1090<span class="w"> </span>--verbose<span class="w"> </span>rtlsdr://@LHR<sp
 jet1090<span class="w"> </span>--verbose<span class="w"> </span>airspy://
 
 <span class="c1"># Explicit device index</span>
-jet1090<span class="w"> </span>--verbose<span class="w"> </span>airspy://1
+jet1090<span class="w"> </span>--verbose<span class="w"> </span>airspy://0
 
 <span class="c1"># By serial</span>
 jet1090<span class="w"> </span>--verbose<span class="w"> </span>airspy://serial<span class="o">=</span>0x35AC63DC2D8C7A4F
 </code></pre></div>
 <p>For more details on Airspy configuration options, see the <a href="../config/#sources">configuration documentation</a>.</p>
-<h2 id="soapysdr-devices">SoapySDR devices<a class="headerlink" href="#soapysdr-devices" title="Permanent link">&para;</a></h2>
-<p><code>jet1090</code> must be <a href="../install/">compiled with the <code>soapy</code> feature</a> to support SoapySDR-compatible devices (HackRF, LimeSDR, PlutoSDR, etc.).</p>
+<h3 id="hackrf-devices">HackRF devices<a class="headerlink" href="#hackrf-devices" title="Permanent link">&para;</a></h3>
+<p><code>jet1090</code> must be <a href="../install/">compiled with the <code>hackrf</code> feature</a> (default) to support <a href="https://greatscottgadgets.com/hackrf/one/">HackRF One</a> and <a href="https://greatscottgadgets.com/hackr/pro/">HackRF Pro</a> direct-sampling software-defined radios.</p>
+<p><img alt="hackrf one" src="../images/hackrf.jpg" style="height:150px" /></p>
+<p>Before running <code>jet1090</code>, verify your HackRF is detected:</p>
+<div class="language-sh highlight"><pre><span></span><code>hackrf_info
+</code></pre></div>
+<p>Once verified, start decoding:</p>
+<div class="language-sh highlight"><pre><span></span><code><span class="c1"># Default device (index 0)</span>
+jet1090<span class="w"> </span>--verbose<span class="w"> </span>hackrf://
+
+<span class="c1"># Explicit device index</span>
+jet1090<span class="w"> </span>--verbose<span class="w"> </span>hackrf://0
+</code></pre></div>
+<p>For more details on HackRF configuration options, see the <a href="../config/#hackrf">configuration documentation</a>.</p>
+<h3 id="soapysdr-devices">SoapySDR devices<a class="headerlink" href="#soapysdr-devices" title="Permanent link">&para;</a></h3>
+<p><code>jet1090</code> must be <a href="../install/">compiled with the <code>soapy</code> feature</a> to support SoapySDR-compatible devices (BladeRF, LimeSDR, PlutoSDR, etc.). This is a fallback option for natively not supported devices.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Distributed binaries are not compiled with the <code>soapy</code> feature.</p>
+</div>
 <p>Before running <code>jet1090</code>, verify your SoapySDR device is detected:</p>
 <div class="language-sh highlight"><pre><span></span><code><span class="c1"># Find all SoapySDR devices</span>
 SoapySDRUtil<span class="w"> </span>--find

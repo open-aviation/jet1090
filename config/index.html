@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -623,6 +623,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#hackrf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HackRF
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#soapysdr" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -778,6 +789,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#hackrf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HackRF
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#soapysdr" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -870,31 +892,24 @@
 <p>If you have several scenarios requiring different configurations files, this option may be where to look at.</p>
 </div>
 <h2 id="general-settings">General settings<a class="headerlink" href="#general-settings" title="Permanent link">&para;</a></h2>
-<p>If you set a configuration file, some parameters must be always present:</p>
-<div class="language-toml highlight"><pre><span></span><code><span class="n">interactive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w">      </span><span class="c1"># display a table view</span>
-<span class="n">verbose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w">          </span><span class="c1"># display decoded messages in the terminal</span>
-<span class="n">prevent_sleep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w">    </span><span class="c1"># force the laptop not to enter sleep mode (useful when lid is closed)</span>
-<span class="n">update_position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w">  </span><span class="c1"># auto-update the reference position (useful when on a moving aircraft)</span>
-</code></pre></div>
-<p>Other parameters are optional:</p>
 <div class="language-toml highlight"><pre><span></span><code><span class="n">deduplication</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">800</span><span class="w">        </span><span class="c1"># buffer interval for deduplication, in milliseconds</span>
+<span class="n">flags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w">              </span><span class="c1"># add a flag emoji column in the interactive table</span>
 <span class="n">history_expire</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w">        </span><span class="c1"># in minutes</span>
+<span class="n">interactive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w">        </span><span class="c1"># display a table view</span>
 <span class="n">log_file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;-&quot;</span><span class="w">             </span><span class="c1"># use together with RUSTLOG environment variable</span>
 <span class="n">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;~/output.jsonl&quot;</span><span class="w">  </span><span class="c1"># the ~ (tilde) character is automatically expanded</span>
+<span class="n">prevent_sleep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w">      </span><span class="c1"># force the laptop not to enter sleep mode (useful when lid is closed)</span>
 <span class="n">redis_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;redis://localhost:6379&quot;</span>
 <span class="n">serve_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8080</span><span class="w">          </span><span class="c1"># for the REST API</span>
+<span class="n">update_position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w">    </span><span class="c1"># auto-update the reference position (useful when on a moving aircraft)</span>
+<span class="n">verbose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w">            </span><span class="c1"># display decoded messages in the terminal</span>
 </code></pre></div>
 <h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If you do not want to set any source in the configuration file, you must specify an empty list:</p>
-<div class="language-toml highlight"><pre><span></span><code><span class="n">sources</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
-</code></pre></div>
-<p>Otherwise, <strong>do not</strong> include that line, and set as many sources as you need with the <code>[[sources]]</code> header.</p>
-</div>
 <h3 id="rtl-sdr">RTL-SDR<a class="headerlink" href="#rtl-sdr" title="Permanent link">&para;</a></h3>
-<p>RTL-SDR devices can be configured by device index:</p>
-<p>RTL-SDR devices are configured using a structured format in TOML.</p>
+<p><strong>Minimal configuration:</strong></p>
+<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
+<span class="n">rtlsdr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+</code></pre></div>
 <p><strong>Device selection by index:</strong></p>
 <div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
 <span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;rtl-sdr-first&quot;</span>
@@ -910,78 +925,30 @@
 <p><strong>Device selection with multiple filters:</strong></p>
 <div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
 <span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;rtl-sdr-filtered&quot;</span>
-<span class="n">rtlsdr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">serial</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;00000001&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">manufacturer</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;Realtek&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">product</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;RTL2838UHIDIR&quot;</span><span class="w"> </span><span class="p">}</span>
-<span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;EHAM&quot;</span>
+<span class="n">rtlsdr</span><span class="p">.</span><span class="n">serial</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;00000001&quot;</span>
+<span class="n">rtlsdr</span><span class="p">.</span><span class="n">manufacturer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Realtek&quot;</span>
+<span class="n">rtlsdr</span><span class="p">.</span><span class="n">product</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;RTL2838UHIDIR&quot;</span>
 </code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">RTL-SDR Device Selection</p>
-<p>RTL-SDR devices can be selected using the following fields:</p>
-<ul>
-<li><strong>device</strong>: Device index (0, 1, 2, ...) - <code>rtlsdr = { device = 0 }</code></li>
-<li><strong>serial</strong>: Serial number - <code>rtlsdr = { serial = "00000001" }</code></li>
-<li><strong>manufacturer</strong>: Manufacturer name - <code>rtlsdr = { manufacturer = "Realtek" }</code></li>
-<li><strong>product</strong>: Product name - <code>rtlsdr = { product = "RTL2838UHIDIR" }</code></li>
-</ul>
-<p>You can combine filters (serial, manufacturer, product) for precise device matching. 
-All specified filters must match for the device to be selected. This is useful when 
-you have multiple RTL-SDR devices and want to ensure you always connect to the same 
-physical device, regardless of USB port order.</p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Gain Configuration</p>
+<p><strong>Gain parameter</strong></p>
 <p>You can set a custom gain value for SDR devices using the <code>gain</code> parameter:</p>
 <div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
 <span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;rtl-sdr-custom-gain&quot;</span>
 <span class="n">rtlsdr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}</span>
 <span class="n">gain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">42.5</span>
-<span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;LFBO&quot;</span>
 </code></pre></div>
-<p>Default gain values:
-- <strong>RTL-SDR</strong>: 49.6 dB (optimized for ADS-B reception)
-- <strong>Airspy</strong>: auto gain
-- <strong>SoapySDR</strong>: 49.6 dB (same as RTL-SDR)</p>
-<p>If not specified, the default value for each device type will be used.</p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Bias-Tee Configuration (RTL-SDR and SoapySDR)</p>
-<p>Enable bias-tee to provide power to an external Low Noise Amplifier (LNA):</p>
-<p><strong>RTL-SDR:</strong>
-<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
-<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;rtl-sdr-with-lna&quot;</span>
-<span class="n">rtlsdr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}</span>
-<span class="n">bias_tee</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-<span class="n">gain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">42.5</span>
-<span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;LFBO&quot;</span>
-</code></pre></div></p>
-<p><strong>SoapySDR:</strong>
-<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
-<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;soapy-rtlsdr-with-lna&quot;</span>
-<span class="n">soapy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;driver=rtlsdr&quot;</span>
-<span class="n">bias_tee</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-<span class="n">gain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">42.5</span>
-<span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;LFBO&quot;</span>
-</code></pre></div></p>
-<p><strong>Default</strong>: <code>false</code> (disabled)</p>
-<div class="admonition warning">
-<p class="admonition-title">Hardware Safety</p>
-<p>Only enable bias-tee if you have an LNA that requires power. 
-Enabling it without proper equipment can damage your hardware.</p>
-<p>Note: Bias-tee support in SoapySDR depends on the underlying driver.
-It's primarily supported when using SoapySDR with RTL-SDR devices.</p>
-</div>
-</div>
+<p>Default gain values: 49.6 dB (max value)</p>
 <div class="admonition note">
 <p class="admonition-title">Command-line Usage</p>
 <p>When using RTL-SDR from the command line, you can use simple formats:</p>
-<div class="language-bash highlight"><pre><span></span><code><span class="c1"># By device index</span>
+<div class="language-bash highlight"><pre><span></span><code><span class="c1"># Default device (device 0)</span>
+jet1090<span class="w"> </span>rtlsdr://
+
+<span class="c1"># By device index</span>
 jet1090<span class="w"> </span>rtlsdr://0
 jet1090<span class="w"> </span>rtlsdr://1
 
-<span class="c1"># By serial number  </span>
+<span class="c1"># By serial number</span>
 jet1090<span class="w"> </span>rtlsdr://serial<span class="o">=</span><span class="m">00000001</span>
-
-<span class="c1"># Default device (device 0)</span>
-jet1090<span class="w"> </span>rtlsdr://
 
 <span class="c1"># With custom gain</span>
 jet1090<span class="w"> </span>rtlsdr://0?gain<span class="o">=</span><span class="m">40</span>
@@ -1003,25 +970,122 @@ jet1090<span class="w"> </span>rtlsdr://0?LFBO<span class="p">&amp;</span><span 
 </div>
 <p>The <code>airport</code> parameter replaces the <code>latitude</code> and <code>longitude</code> parameter if they are not present.</p>
 <h3 id="airspy">Airspy<a class="headerlink" href="#airspy" title="Permanent link">&para;</a></h3>
+<p><strong>Minimal configuration:</strong></p>
+<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
+<span class="n">airspy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+</code></pre></div>
 <p>Airspy devices can be selected by index or serial number:</p>
 <div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
 <span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;airspy-default&quot;</span>
 <span class="n">airspy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}</span>
-<span class="n">sample_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">6.0e6</span>
-<span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;LFBO&quot;</span>
 </code></pre></div>
 <div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
 <span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;airspy-by-serial&quot;</span>
 <span class="n">airspy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">serial</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;0x35AC63DC2D8C7A4F&quot;</span><span class="w"> </span><span class="p">}</span>
-<span class="n">sample_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">6.0e6</span>
-<span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;LFBO&quot;</span>
+<span class="n">sample_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">6e6</span><span class="w">  </span><span class="c1"># default sample rate</span>
+</code></pre></div>
+<p><strong>Gain parameters</strong>:</p>
+<p>The Airspy uses a <em>sensitivity</em> gain mode (0–21 steps for Airspy R2, 0–100 as a
+percentage-style value). The default gain is <strong>50</strong>, which is a good middle point:</p>
+<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Airspy&quot;</span>
+<span class="n">airspy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}</span>
+<span class="n">gain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span><span class="w">           </span><span class="c1"># default; lower if you have a strong signal / overloading</span>
 </code></pre></div>
 <div class="admonition note">
-<p class="admonition-title">Command-line Usage</p>
-<div class="language-bash highlight"><pre><span></span><code>jet1090<span class="w"> </span>airspy://
-jet1090<span class="w"> </span>airspy://1
-jet1090<span class="w"> </span>airspy://serial<span class="o">=</span>0x35AC63DC2D8C7A4F
+<p class="admonition-title">Maximum gain and overload</p>
+<p>The maximum sensitivity gain value depends on the firmware version and Airspy model. At high gain the device can saturate near busy airports. Reduce <code>gain</code> if you see many CRC errors.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">External LNA and bias-tee</p>
+<p>Airspy devices benefit greatly from an external low-noise amplifier (LNA) placed before the antenna connector. If your LNA is powered through the coax (bias-tee), enable it explicitly. It is <strong>off by default</strong>:</p>
+<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Airspy with LNA&quot;</span>
+<span class="n">airspy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}</span>
+<span class="n">gain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="w">          </span><span class="c1"># lower gain when using an external LNA</span>
+<span class="n">bias_tee</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w">    </span><span class="c1"># power the LNA through the coax</span>
 </code></pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Per-element gains vs. <code>gain</code></p>
+<p>You can set individual gain stages inside <code>airspy = { ... }</code> using
+<code>lna_gain</code>, <code>mixer_gain</code>, and <code>vga_gain</code> (0–14 / 0–15 range depending on
+stage). These are <strong>mutually exclusive</strong> with the top-level <code>gain</code> field:
+specifying both is an error.</p>
+<div class="language-toml highlight"><pre><span></span><code><span class="c1"># Fine-grained control (advanced users)</span>
+<span class="k">[[sources]]</span>
+<span class="n">airspy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">lna_gain</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="n">mixer_gain</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">vga_gain</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+</div>
+<h3 id="hackrf">HackRF<a class="headerlink" href="#hackrf" title="Permanent link">&para;</a></h3>
+<p><strong>Minimal configuration:</strong></p>
+<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
+<span class="n">hackrf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+</code></pre></div>
+<p>HackRF devices can be selected by device index:</p>
+<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;hackrf-default&quot;</span>
+<span class="n">hackrf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}</span>
+<span class="n">sample_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">6e6</span><span class="w">  </span><span class="c1"># this is default sample rate with hackrf</span>
+</code></pre></div>
+<p><strong>Gain parameters</strong>:</p>
+<p>The simplest way to control gain is the top-level <code>gain</code> field, which passes a
+single scalar value to the driver:</p>
+<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
+<span class="n">hackrf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}</span>
+<span class="n">gain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
+</code></pre></div>
+<p>When <code>gain</code> is omitted, jet1090 falls back to the per-element defaults described
+in the advanced section below.</p>
+<p><strong>DC offset</strong></p>
+<p>HackRF is a direct-sampling receiver that suffers from a DC spike at the exact
+centre frequency (1090 MHz). Tuning slightly off-centre avoids this. The default
+offset is already <strong>−75 kHz</strong> — you normally do not need to set it explicitly:</p>
+<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
+<span class="n">hackrf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">freq_offset_hz</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">-75000</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c1"># already the default</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Command-line usage</p>
+<div class="language-bash highlight"><pre><span></span><code><span class="c1"># Default device — gains and offset applied automatically</span>
+jet1090<span class="w"> </span>hackrf://
+
+<span class="c1"># Specific device index</span>
+jet1090<span class="w"> </span>hackrf://1
+
+<span class="c1"># Per-element gain control requires a config file</span>
+jet1090<span class="w"> </span>--config<span class="w"> </span>~/.config/jet1090/config.toml
+</code></pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Per-element gains vs. <code>gain</code></p>
+<p>For fine-grained tuning you can set each gain stage individually inside
+<code>hackrf = { ... }</code>. This is <strong>mutually exclusive</strong> with the top-level <code>gain</code>
+field — specifying both produces an error.</p>
+<p>The default values applied when neither <code>gain</code> nor per-element parameters are
+set are:</p>
+<div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
+<span class="n">hackrf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">lna_gain</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="n">vga_gain</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">55</span><span class="p">,</span><span class="w"> </span><span class="n">amp_enable</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="n">freq_offset_hz</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">-75000</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p>This works well for a modest rooftop antenna without an external LNA.</p>
+<ul>
+<li>
+<p><strong>lna_gain</strong> (0–40 dB, 8 dB steps): Low-Noise Amplifier stage.
+  Default: <strong>40 dB</strong>. Reduce if you are near a busy airport and experience
+  saturation (many CRC errors).</p>
+</li>
+<li>
+<p><strong>vga_gain</strong> (0–62 dB, 2 dB steps): Variable Gain Amplifier stage.
+  Default: <strong>55 dB</strong>. Avoid the maximum (62 dB) as it causes saturation.</p>
+</li>
+<li>
+<p><strong>amp_enable</strong> (<code>true</code>/<code>false</code>): RF Amplifier (+14 dB boost before the LNA).
+  Default: <strong>true</strong>. Disable if you have a strong signal or an external LNA.</p>
+</li>
+<li>
+<p><strong>freq_offset_hz</strong> (integer Hz): Frequency offset to avoid the DC spike.
+  Default: <strong>-75000</strong> (−75 kHz).</p>
+</li>
+</ul>
 </div>
 <h3 id="soapysdr">SoapySDR<a class="headerlink" href="#soapysdr" title="Permanent link">&para;</a></h3>
 <p>SoapySDR devices can be configured with driver arguments:</p>
@@ -1040,8 +1104,8 @@ jet1090<span class="w"> </span>airspy://serial<span class="o">=</span>0x35AC63DC
 </code></pre></div>
 <p>Or with other SoapySDR-compatible devices:</p>
 <div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
-<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;soapy-hackrf&quot;</span>
-<span class="n">soapy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;driver=hackrf&quot;</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;soapy-bladerf&quot;</span>
+<span class="n">soapy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;driver=bladerf&quot;</span>
 <span class="n">latitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">51.4706</span>
 <span class="n">longitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">-0.4619</span>
 </code></pre></div>
@@ -1052,19 +1116,17 @@ jet1090<span class="w"> </span>airspy://serial<span class="o">=</span>0x35AC63DC
 <span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;LFBO&quot;</span>
 </code></pre></div>
 <h3 id="iq-file-offline-decoding">IQ File (Offline Decoding)<a class="headerlink" href="#iq-file-offline-decoding" title="Permanent link">&para;</a></h3>
-<p>You can decode pre-recorded IQ files captured from SDR devices. This is useful for:
-- Testing and debugging ADS-B decoding without live hardware
-- Processing historical recordings
-- Offline analysis and development</p>
+<p>You can decode pre-recorded IQ files captured from SDR devices. This is useful for:</p>
+<ul>
+<li>Testing and debugging ADS-B decoding without live hardware</li>
+<li>Processing historical recordings</li>
+<li>Offline analysis and development</li>
+</ul>
 <p><strong>Supported IQ formats:</strong></p>
 <ul>
 <li><strong>cu8</strong>: Complex unsigned 8-bit (RTL-SDR default format)</li>
-<li>Range: 0-255, where 127.5 represents zero</li>
-<li>Most common format from <code>rtl_sdr</code> command</li>
 <li><strong>cs8</strong>: Complex signed 8-bit</li>
-<li>Range: -128 to 127</li>
 <li><strong>cs16</strong>: Complex signed 16-bit little-endian</li>
-<li>Range: -32768 to 32767</li>
 </ul>
 <p><strong>TOML Configuration:</strong></p>
 <div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
@@ -1101,11 +1163,6 @@ jet1090<span class="w"> </span><span class="s2">&quot;file://~/adsb.iq?format=cu
 rtl_sdr<span class="w"> </span>-f<span class="w"> </span>1090M<span class="w"> </span>-s<span class="w"> </span><span class="m">2</span>.4M<span class="w"> </span>-g<span class="w"> </span><span class="m">49</span>.6<span class="w"> </span>-n<span class="w"> </span><span class="m">288000000</span><span class="w"> </span>adsb.iq
 </code></pre></div>
 <p>The file will be in cu8 format by default, which is directly compatible with jet1090.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Playback Behavior</p>
-<p>The IQ file is read sequentially from beginning to end. When the file ends, decoding stops. 
-The playback simulates real-time reception at the configured sample rate (2.4 MS/s for ADS-B).</p>
 </div>
 <h3 id="beast-format">Beast format<a class="headerlink" href="#beast-format" title="Permanent link">&para;</a></h3>
 <p>External sources can be configured with the <code>tcp</code>, <code>udp</code> or <code>websocket</code> fields.</p>
