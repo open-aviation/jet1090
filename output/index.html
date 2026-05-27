@@ -861,9 +861,12 @@
 <p>If a <code>--serve-port</code> option is set, a REST API is set on <code>0.0.0.0</code> on the port of your choice.</p>
 <p>The following endpoint are provided:</p>
 <ul>
-<li><code>/</code>: returns a list of all visible <code>icao24</code> identifiers</li>
+<li><code>/</code>: returns an index page with the available routes</li>
+<li><code>/icao24</code>: returns a list of all visible <code>icao24</code> identifiers</li>
 <li><code>/all</code>: returns a list of all state vectors (the last valid field for each aircraft)</li>
 <li><code>/track?icao24=xxx</code>: returns a list of all received messages for a given aircraft.</li>
+<li><code>/sensors</code>: returns information about all sensors</li>
+<li><code>/airports?q=xxx</code>: returns a list of airports matching the query string</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
