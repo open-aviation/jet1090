@@ -586,6 +586,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#live-stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Live stream
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#websocket" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -729,6 +740,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#live-stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Live stream
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#websocket" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -825,36 +847,36 @@
 <div class="tabbed-block">
 <div class="language-python highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s2">&quot;output.jsonl&quot;</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s2">"output.jsonl"</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="language-python highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_ndjson</span><span class="p">(</span><span class="s2">&quot;output.jsonl&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_ndjson</span><span class="p">(</span><span class="s2">"output.jsonl"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>You will need the <code>lazy</code> and <code>ndjson</code> (new line delimited JSON) features:</p>
 <div class="language-toml highlight"><pre><span></span><code><span class="k">[dependencies]</span>
-<span class="n">polars</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;0.34&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">features</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;lazy&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ndjson&quot;</span><span class="p">]</span><span class="w"> </span><span class="p">}</span>
+<span class="n">polars</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"0.34"</span><span class="p">,</span><span class="w"> </span><span class="n">features</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"lazy"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ndjson"</span><span class="p">]</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <div class="language-rust highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">polars</span><span class="p">::</span><span class="n">prelude</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
 
-<span class="kd">let</span><span class="w"> </span><span class="n">df</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LazyFrame</span><span class="p">::</span><span class="n">scan_ndjson</span><span class="p">(</span><span class="s">&quot;output.jsonl&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ScanArgsNdJson</span><span class="p">::</span><span class="n">default</span><span class="p">())</span><span class="o">?</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">df</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LazyFrame</span><span class="p">::</span><span class="n">scan_ndjson</span><span class="p">(</span><span class="s">"output.jsonl"</span><span class="p">,</span><span class="w"> </span><span class="n">ScanArgsNdJson</span><span class="p">::</span><span class="n">default</span><span class="p">())</span><span class="o">?</span>
 <span class="w">    </span><span class="p">.</span><span class="n">collect</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-javascript highlight"><pre><span></span><code><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="s2">&quot;output.jsonl&quot;</span><span class="p">)</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="s2">"output.jsonl"</span><span class="p">)</span>
 <span class="w">  </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">text</span><span class="p">())</span>
-<span class="w">  </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">text</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">text</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot;\n&quot;</span><span class="p">).</span><span class="nx">filter</span><span class="p">(</span><span class="nx">line</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">line</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">));</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">text</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">text</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">"\n"</span><span class="p">).</span><span class="nx">filter</span><span class="p">(</span><span class="nx">line</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">line</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s2">""</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">));</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="language-R highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">ndjson</span><span class="p">)</span>
 
-<span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ndjson</span><span class="o">::</span><span class="nf">stream_in</span><span class="p">(</span><span class="s">&quot;output.jsonl&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ndjson</span><span class="o">::</span><span class="nf">stream_in</span><span class="p">(</span><span class="s">"output.jsonl"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
@@ -869,12 +891,20 @@
 <li><code>/track?icao24=xxx</code>: returns a list of all received messages for a given aircraft.</li>
 <li><code>/sensors</code>: returns information about all sensors</li>
 <li><code>/airports?q=xxx</code>: returns a list of airports matching the query string</li>
+<li><code>/stream</code>: a live feed of decoded messages as <a href="https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events">server-sent events</a> (see below)</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>By default, all the history remains accessible until the program exits but this behaviour can drain your RAM memory quickly if you see many aircraft. You can use the <code>--history-expire</code> parameter to limit the history to a number of minutes before the current time.</p>
 <p>You can also completely deactivate the storing of messages with the <code>--history-expire 0</code> option.</p>
 </div>
+<h2 id="live-stream">Live stream<a class="headerlink" href="#live-stream" title="Permanent link">&para;</a></h2>
+<p>The <code>/stream</code> endpoint pushes every decoded message as it arrives, in the same JSON format as the <code>.jsonl</code> output and the Redis feed. It uses server-sent events, so any browser can consume it without extra libraries:</p>
+<div class="language-javascript highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EventSource</span><span class="p">(</span><span class="s2">"http://localhost:8080/stream"</span><span class="p">);</span>
+<span class="nx">source</span><span class="p">.</span><span class="nx">onmessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">));</span>
+</code></pre></div>
+<p>The <code>--df-filter</code> and <code>--aircraft-filter</code> options apply before the stream, so a message excluded there never reaches any subscriber.</p>
+<p>A client that reads too slowly is moved to the live edge of the feed and misses the messages in between. The decoder never waits for a client.</p>
 <h2 id="websocket">WebSocket<a class="headerlink" href="#websocket" title="Permanent link">&para;</a></h2>
 <p>(not yet supported)</p>
 <h2 id="redis-pubsub">Redis pub/sub<a class="headerlink" href="#redis-pubsub" title="Permanent link">&para;</a></h2>

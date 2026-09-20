@@ -850,35 +850,35 @@
 <p class="admonition-title">Example</p>
 <p>In the following example, the message <code>8d4400eb58c7d45c48e257428292</code> has been received by two different receivers within 200+ms. Timestamping information based on GNSS clocks has been attached, as well as signal strength. All the information present in the message is decoded and flattened in the JSON entry; latitude and longitude values are decoded based on the history of received <a href="https://docs.rs/rs1090/latest/rs1090/decode/bds/bds05/struct.AirbornePosition.html">BDS 0,5 messages</a>.</p>
 <div class="language-json highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1734990395.4640563</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;frame&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;8d4400eb58c7d45c48e257428292&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;df&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;17&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;icao24&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4400eb&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;bds&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;05&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;tc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;NUCp&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;NICb&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;altitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">38925</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;barometric&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;parity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;odd&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;lat_cpr&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">11812</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;lon_cpr&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">57943</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;latitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">49.36343435513771</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;longitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">4.188031648334704</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mf">1734990395.4640563</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"frame"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8d4400eb58c7d45c48e257428292"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"df"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"icao24"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4400eb"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"bds"</span><span class="p">:</span><span class="w"> </span><span class="s2">"05"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"tc"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"NUCp"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"NICb"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"altitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">38925</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"barometric"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"parity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"odd"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"lat_cpr"</span><span class="p">:</span><span class="w"> </span><span class="mi">11812</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"lon_cpr"</span><span class="p">:</span><span class="w"> </span><span class="mi">57943</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">49.36343435513771</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.188031648334704</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;system_timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1734990395.4640563</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;gnss_timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1734990395.4026532</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;nanoseconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">84176392945664</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;rssi&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.567779</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;serial&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">9467850719808063263</span>
+<span class="w">      </span><span class="nt">"system_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mf">1734990395.4640563</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"gnss_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mf">1734990395.4026532</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"nanoseconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">84176392945664</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"rssi"</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.567779</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"serial"</span><span class="p">:</span><span class="w"> </span><span class="mi">9467850719808063263</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;system_timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1734990395.6401641</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;gnss_timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1734990395.539131</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;nanoseconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">84176529423429</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;rssi&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-24.048405</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;serial&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4075562207768597288</span>
+<span class="w">      </span><span class="nt">"system_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mf">1734990395.6401641</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"gnss_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mf">1734990395.539131</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"nanoseconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">84176529423429</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"rssi"</span><span class="p">:</span><span class="w"> </span><span class="mf">-24.048405</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"serial"</span><span class="p">:</span><span class="w"> </span><span class="mi">4075562207768597288</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>

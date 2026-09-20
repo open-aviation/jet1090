@@ -754,7 +754,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="shell-script" name="__tabbed_1" type="radio" /><input id="arch-linux" name="__tabbed_1" type="radio" /><input id="homebrew-mac-os" name="__tabbed_1" type="radio" /><input id="powershell-windows" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="shell-script">Shell script</label><label for="arch-linux">Arch Linux</label><label for="homebrew-mac-os">Homebrew (Mac OS)</label><label for="powershell-windows">Powershell (Windows)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-sh highlight"><pre><span></span><code>curl<span class="w"> </span>--proto<span class="w"> </span><span class="s1">&#39;=https&#39;</span><span class="w"> </span>--tlsv1.2<span class="w"> </span>-LsSf<span class="w"> </span>https://github.com/xoolive/jet1090/releases/latest/download/jet1090-installer.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+<div class="language-sh highlight"><pre><span></span><code>curl<span class="w"> </span>--proto<span class="w"> </span><span class="s1">'=https'</span><span class="w"> </span>--tlsv1.2<span class="w"> </span>-LsSf<span class="w"> </span>https://github.com/xoolive/jet1090/releases/latest/download/jet1090-installer.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
 </code></pre></div>
 <p>Update to next release with:</p>
 <div class="language-sh highlight"><pre><span></span><code>jet1090-update
@@ -772,7 +772,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-sh highlight"><pre><span></span><code>powershell<span class="w"> </span>-ExecutionPolicy<span class="w"> </span>ByPass<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;irm https://github.com/xoolive/jet1090/releases/latest/download/jet1090-installer.ps1 | iex&quot;</span>
+<div class="language-sh highlight"><pre><span></span><code>powershell<span class="w"> </span>-ExecutionPolicy<span class="w"> </span>ByPass<span class="w"> </span>-c<span class="w"> </span><span class="s2">"irm https://github.com/xoolive/jet1090/releases/latest/download/jet1090-installer.ps1 | iex"</span>
 </code></pre></div>
 <ul>
 <li>
@@ -863,12 +863,12 @@ nix<span class="w"> </span>profile<span class="w"> </span>install
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Add the following to the end of your <code>~/.bashrc</code>:</p>
-<div class="language-sh highlight"><pre><span></span><code><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>jet1090<span class="w"> </span>--completion<span class="w"> </span>bash<span class="k">)</span><span class="s2">&quot;</span>
+<div class="language-sh highlight"><pre><span></span><code><span class="nb">eval</span><span class="w"> </span><span class="s2">"</span><span class="k">$(</span>jet1090<span class="w"> </span>--completion<span class="w"> </span>bash<span class="k">)</span><span class="s2">"</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Add the following to the end of your <code>~/.zshrc</code>:</p>
-<div class="language-sh highlight"><pre><span></span><code><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>jet1090<span class="w"> </span>--completion<span class="w"> </span>zsh<span class="k">)</span><span class="s2">&quot;</span>
+<div class="language-sh highlight"><pre><span></span><code><span class="nb">eval</span><span class="w"> </span><span class="s2">"</span><span class="k">$(</span>jet1090<span class="w"> </span>--completion<span class="w"> </span>zsh<span class="k">)</span><span class="s2">"</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
