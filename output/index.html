@@ -841,6 +841,28 @@
 </table>
 <h2 id="output-as-a-json-file">Output as a JSON file<a class="headerlink" href="#output-as-a-json-file" title="Permanent link">&para;</a></h2>
 <p>The <code>-o</code> or <code>--output</code> option enables the dumping of decoded messages to a file in the JSON line format.</p>
+<p>If the filename ends in <code>.jsonl.zst</code>, output is automatically compressed with
+Zstandard. All other filenames keep the existing uncompressed behavior.</p>
+<div class="language-sh highlight"><pre><span></span><code>jet1090<span class="w"> </span>--output<span class="w"> </span>capture.jsonl.zst<span class="w"> </span>tcp://127.0.0.1:30005
+decode1090<span class="w"> </span>follow<span class="w"> </span>capture.jsonl.zst
+</code></pre></div>
+<p>The compressor and file buffers are flushed approximately every second, even
+when no new messages arrive, so the file can be followed while it is still
+being written. <code>decode1090 follow</code> reads from the <strong>first byte</strong>, displaying
+existing records before following additions without re-decoding their frames.
+It accepts plain JSONL too and stops with Ctrl-C. The file must already exist;
+rotation/replacement and truncation are not supported.</p>
+<p>A plain <code>tail -f</code> cannot start arbitrarily inside a compressed frame. The
+<code>tail -c +1 -f file.jsonl.zst | zstd -dc</code> pipeline reads from the beginning but
+can lag at low traffic rates because the <code>zstd</code> CLI buffers piped input.
+<code>decode1090 follow</code> instead reads incrementally and flushes decoded output
+immediately. Further downstream pipes may still add their own buffering.</p>
+<p><code>jet1090</code> retains its append behavior: restarting with the same output filename
+adds another Zstandard frame. The <code>zstd</code> CLI and <code>decode1090 file</code> accept these
+concatenated frames. Graceful shutdown (including SIGINT/SIGTERM in headless
+mode) finalizes the current frame. Forced termination such as SIGKILL or power
+loss may leave an unfinished final frame. <code>decode1090</code> also supports automatic
+<code>.jsonl.zst</code> output, but overwrites its output file as before rather than appending.</p>
 <p>That format is easily accessible from several libraries across programming languages:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="pandas-python" name="__tabbed_1" type="radio" /><input id="polars-python" name="__tabbed_1" type="radio" /><input id="polars-rust" name="__tabbed_1" type="radio" /><input id="javascript" name="__tabbed_1" type="radio" /><input id="r" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="pandas-python">Pandas (Python)</label><label for="polars-python">Polars (Python)</label><label for="polars-rust">Polars (Rust)</label><label for="javascript">JavaScript</label><label for="r">R</label></div>
 <div class="tabbed-content">
