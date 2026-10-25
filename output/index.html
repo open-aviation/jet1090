@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -31,10 +31,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -800,6 +800,20 @@
 </ul>
 <p><img alt="jet1090 table view" src="../images/jet1090-table.png" /></p>
 <p>Both options are incompatible and <code>--interactive</code> has the priority.</p>
+<p>Press <code>s</code> or <code>S</code> to show or hide the <strong>Sources</strong> panel below the aircraft table.
+It uses the existing source names (stable identifiers for unnamed sources) and
+shows their current state: <code>●</code> connected, <code>○</code> connecting, <code>↻</code> reconnecting or
+<code>✕</code> failed. Reconnecting/failed sources also show their most recent retained
+diagnostic; it is no longer displayed there after recovery. The panel takes
+at most half the terminal height, keeping the aircraft table visible.</p>
+<p>A SeRo entry represents a subscription containing multiple sensors. Without
+an explicit <code>name</code>, it uses an opaque <code>SeRo-…</code> subscription label, not a sensor
+serial number. It becomes connected once the authenticated stream and sensor
+metadata are ready, even while idle; failures are attributed to that entry.
+Individual sensor identifiers in decoded messages are unchanged.</p>
+<p>The <code>e</code> key opens the retained warning/error history; <code>Esc</code> closes it. Showing
+sources does not acknowledge unread errors. While entering a <code>/</code> search, <code>s</code>
+and <code>S</code> remain search text rather than toggling the panel.</p>
 <p>In the table view, aircraft can be sorted by:</p>
 <table>
 <thead>
@@ -1044,10 +1058,10 @@ Issues:<span class="w"> </span>https://github.com/laixintao/iredis/issues
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.annotate", "content.code.copy", "navigation.expand", "navigation.footer", "navigation.indexes", "navigation.tabs", "navigation.tabs.sticky", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.annotate", "content.code.copy", "navigation.expand", "navigation.footer", "navigation.indexes", "navigation.tabs", "navigation.tabs.sticky", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
       
     
   </body>
