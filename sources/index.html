@@ -16,7 +16,7 @@
         <link rel="prev" href="../install/">
       
       
-        <link rel="next" href="../output/">
+        <link rel="next" href="../deduplication/">
       
       
         
@@ -292,6 +292,25 @@
     
   
   Sources of data
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../deduplication/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Deduplication
 
       </a>
     </li>
@@ -651,6 +670,33 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deduplication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deduplication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1060,6 +1106,19 @@ WantedBy=multi-user.target
 </div>
 <h2 id="sero-systems-api">SeRo Systems API<a class="headerlink" href="#sero-systems-api" title="Permanent link">&para;</a></h2>
 <p>If you have a token for the <a href="https://doc.sero-systems.de/api/">SeRo Systems API</a>, include it in your <a href="../config/#sero-systems">configuration file</a> with the <code>sero.token</code> entry.</p>
+<p>For receptions declared as GPS time-of-week and synchronized to GNSS or an
+atomic clock, jet1090 uses the earliest usable capture time as the message's
+event timestamp. Client observation time remains in <code>metadata.system_timestamp</code>.
+This preserves measurement spacing when streamed frames arrive in bursts.
+Uptime, unknown/unsynchronized timing and out-of-range clock values fall back
+to client observation time; they are not converted into absolute GNSS times.
+No additional configuration is required. Other sources' timing is unchanged.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When mixing several such feeds, receptions of the same transmission are
+merged by the <a href="../deduplication/">deduplication</a> stage, which also decides
+which capture time is kept for the merged message.</p>
+</div>
 
 
 
@@ -1106,13 +1165,13 @@ WantedBy=multi-user.target
         
         
           
-          <a href="../output/" class="md-footer__link md-footer__link--next" aria-label="Next: Serving real-time data">
+          <a href="../deduplication/" class="md-footer__link md-footer__link--next" aria-label="Next: Deduplication">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Serving real-time data
+                Deduplication
               </div>
             </div>
             <div class="md-footer__button md-icon">

@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://mode-s.org/jet1090/output/">
       
       
-        <link rel="prev" href="../sources/">
+        <link rel="prev" href="../deduplication/">
       
       
         <link rel="next" href="../config/">
@@ -300,6 +300,25 @@
   
   
   
+  
+    <li class="md-tabs__item">
+      <a href="../deduplication/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Deduplication
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
     
   
   
@@ -474,6 +493,33 @@
     
   
     Sources of data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deduplication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deduplication
   
 
     
@@ -945,7 +991,28 @@ loss may leave an unfinished final frame. <code>decode1090</code> also supports 
 <p>(not yet supported)</p>
 <h2 id="redis-pubsub">Redis pub/sub<a class="headerlink" href="#redis-pubsub" title="Permanent link">&para;</a></h2>
 <p>If the <code>--redis-url</code> is set, all messages are sent to the Redis pub/sub instance.</p>
-<p>The default topic is <code>jet1090</code> but it can be overriden with the <code>--redis-topic</code> option.</p>
+<p>The default topic is <code>jet1090</code> but it can be overridden with the <code>--redis-topic</code> option.</p>
+<p>The main loop pipelines up to 16 messages or 64 KiB of combined JSON payloads,
+with a 5 ms collection deadline from the first message. There is no separate
+publication task or additional queue. A larger individual payload is sent whole
+in its own batch; these limits are not a fixed total process-memory cap.
+Flushing runs between messages, with due batches prioritized over new input;
+current-message processing, scheduling and network time are additional to the
+deadline.</p>
+<p>JSON contents and capture timestamps are unchanged. Without transport errors,
+publication preserves emission order. The main loop waits for acknowledgements
+once per batch, and pauses during flushing or retries. Redis, <code>/stream</code>, file
+output and history are not an atomic transaction.</p>
+<p><code>--redis-retry-interval</code> controls retries (default: 5 seconds). On failure the
+publisher reconnects and retries the pending batch before advancing. A connection
+failure can leave delivery uncertain: an already-published prefix may be replayed,
+and a warning reports this possibility. Setting the interval to <code>0</code> skips a
+failed batch with a warning instead. Redis Pub/Sub is not durable or exactly-once
+subscriber delivery.</p>
+<p>Normal shutdown flushes the pending batch. Flushing is bounded to
+two seconds; a timeout reports unacknowledged messages, which may already
+have reached Redis, and produces an unsuccessful exit. This covers accepted JSON
+output, not every upstream radio frame still in a source or deduplication buffer.</p>
 <p>You may run a Redis server as a Docker or podman instance:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="docker" name="__tabbed_2" type="radio" /><input id="podman" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="docker">Docker</label><label for="podman">podman</label></div>
 <div class="tabbed-content">
@@ -998,7 +1065,7 @@ Issues:<span class="w"> </span>https://github.com/laixintao/iredis/issues
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../sources/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Sources of data">
+          <a href="../deduplication/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Deduplication">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1008,7 +1075,7 @@ Issues:<span class="w"> </span>https://github.com/laixintao/iredis/issues
                 Previous
               </span>
               <div class="md-ellipsis">
-                Sources of data
+                Deduplication
               </div>
             </div>
           </a>
