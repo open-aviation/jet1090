@@ -621,6 +621,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#df11-interrogator-identifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DF11 interrogator identifiers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rest-api" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -768,6 +779,17 @@
     <span class="md-ellipsis">
       
         Output as a JSON file
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#df11-interrogator-identifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DF11 interrogator identifiers
       
     </span>
   </a>
@@ -963,6 +985,29 @@ loss may leave an unfinished final frame. <code>decode1090</code> also supports 
 </div>
 </div>
 </div>
+<h2 id="df11-interrogator-identifiers">DF11 interrogator identifiers<a class="headerlink" href="#df11-interrogator-identifiers" title="Permanent link">&para;</a></h2>
+<p>DF11 <code>interrogator</code> is a flat string, shared with uplink1030:</p>
+<ul>
+<li><code>"II0"</code> through <code>"II15"</code>: Interrogator Identifier codes.</li>
+<li><code>"SI1"</code> through <code>"SI63"</code>: Surveillance Identifier codes.</li>
+<li><code>"SI0"</code>: the <strong>unallocated</strong> SI0 bit pattern, retained for diagnostics.</li>
+<li><code>"invalid"</code>: a CRC syndrome outside the permitted II/SI range.</li>
+</ul>
+<p>The full 24-bit syndrome is used when decoding; it is never masked into a
+plausible identifier. <code>II0</code> also covers acquisition squitters and intermode
+all-call replies: it neither identifies one radar nor proves a preceding UF11.
+Code equality alone does not establish an interrogation/reply association.</p>
+<p>This replaces the emitted object form, for example
+<code>{"type":"II","value":0}</code> becomes <code>"II0"</code>. Consumers reading <code>.type</code>/<code>.value</code>
+must switch to the string. Rust archive readers continue to accept old objects;
+a missing or null identifier stays absent and never becomes <code>II0</code>. Python and
+WASM decoded outputs use the same flat strings.</p>
+<p>Rust retains <code>Invalid(u32)</code> for binary and legacy-object diagnostics, so a known
+invalid syndrome still displays as <code>invalid (0x00005c)</code>, for example. Flat
+<code>"invalid"</code> does not carry that payload: after reading it, diagnostics report
+<code>invalid (syndrome unavailable)</code> rather than claiming the syndrome was zero.
+Re-decode the original <code>frame</code> if the exact syndrome is needed. Invalid-code
+JSON round-trips preserve the JSON, not necessarily the in-memory payload.</p>
 <h2 id="rest-api">REST API<a class="headerlink" href="#rest-api" title="Permanent link">&para;</a></h2>
 <p>If a <code>--serve-port</code> option is set, a REST API is set on <code>0.0.0.0</code> on the port of your choice.</p>
 <p>The following endpoint are provided:</p>

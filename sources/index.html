@@ -1069,6 +1069,13 @@ Explicit settings override inferred parameters. Unknown names retain the legacy
 resampling or frequency translation is performed. WAV containers are rejected
 rather than read as raw samples. See <a href="../config/#iq-file-offline-decoding">offline IQ configuration</a>
 for aliases, precedence and timestamp limitations.</p>
+<p>In plain headless mode (neither <code>--interactive</code> nor <code>--serve-port</code>), Jet1090
+exits when all input sources finish, after draining decoding/deduplication and
+finalizing file and Redis output. An IQ file's open, parameter or read failure
+sets its source status to failed and makes the eventual process exit nonzero;
+other inputs continue and already accepted messages are still drained. Normal
+EOF and downstream cancellation are not input failures. Interactive and web
+sessions remain available for inspection until explicitly stopped.</p>
 <h2 id="beast-format">Beast format<a class="headerlink" href="#beast-format" title="Permanent link">&para;</a></h2>
 <h3 id="tcp">TCP<a class="headerlink" href="#tcp" title="Permanent link">&para;</a></h3>
 <p>Most decoders share the data they decode in the Beast binary format which contains timestamp information, signal level information (rssi) and Mode S short or long messages.</p>
