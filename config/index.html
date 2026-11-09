@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
     
     
       
@@ -1184,11 +1184,29 @@ set are:</p>
 <li><strong>cu8</strong>: Complex unsigned 8-bit (RTL-SDR default format)</li>
 <li><strong>cs8</strong>: Complex signed 8-bit</li>
 <li><strong>cs16</strong>: Complex signed 16-bit little-endian</li>
+<li><strong>cf32</strong>: Complex 32-bit floating point, little-endian</li>
 </ul>
+<p>Format names are case-insensitive. Desperado aliases such as <code>U8</code>, <code>S16</code>,
+<code>S16_LE</code> and GQRX <code>fc</code> are accepted. An invalid explicit format is an error,
+not a request to fall back to cu8.</p>
+<p>For raw IQ files (also <code>.zst</code>), GQRX and rtl_sdr capture names can supply the
+sample rate and format. Explicit <code>sample_rate</code> and <code>iq_format</code> settings take
+precedence; otherwise unknown names default to 2.4 MS/s and cu8. Only 2.4 and
+6 MS/s are supported: there is no automatic resampling. A known filename
+center frequency must be 1090 MHz; no frequency shifting is performed.
+WAV containers, including SDRuno WAV recordings, must first be converted to raw
+IQ; recognizing their names does not make the raw reader WAV-compatible.</p>
+<p>A full UTC date/time in a GQRX filename supplies the replay origin. A date-only
+rtl_sdr name does <strong>not</strong> imply midnight. Without a complete capture start,
+file modification time (creation time if unavailable) remains an approximate
+fallback, with a warning. Filename time is not a GNSS timing guarantee. Each
+message adds its preamble sample offset to that origin, using actual buffer
+lengths; live SDR timing is unchanged.</p>
 <p><strong>TOML Configuration:</strong></p>
 <div class="language-toml highlight"><pre><span></span><code><span class="k">[[sources]]</span>
 <span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"/path/to/recording.iq"</span>
-<span class="n">iq_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"cu8"</span><span class="w">  </span><span class="c1"># Optional, defaults to "cu8"</span>
+<span class="n">iq_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"cu8"</span><span class="w">  </span><span class="c1"># Optional: overrides filename metadata</span>
+<span class="n">sample_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2400000</span><span class="w">  </span><span class="c1"># Optional: overrides filename metadata (samples/s)</span>
 <span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Recording 2024-01-19"</span>
 <span class="n">airport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"LFBO"</span>
 </code></pre></div>
@@ -1207,12 +1225,19 @@ jet1090<span class="w"> </span><span class="s2">"file:///home/user/adsb.iq?forma
 <span class="c1"># With tilde expansion</span>
 jet1090<span class="w"> </span><span class="s2">"file://~/recordings/adsb.iq?format=cu8"</span>
 
-<span class="c1"># Default format (cu8) - format parameter optional</span>
+<span class="c1"># Format parameter optional: use filename metadata, otherwise cu8</span>
 jet1090<span class="w"> </span><span class="s2">"file:///path/to/file.iq"</span>
 
 <span class="c1"># With location context</span>
 jet1090<span class="w"> </span><span class="s2">"file://~/adsb.iq?format=cu8&amp;LFBO"</span>
 </code></pre></div>
+<p>For example, this raw GQRX recording supplies 6 MS/s, cf32 and a UTC start
+without additional configuration:</p>
+<div class="language-bash highlight"><pre><span></span><code>jet1090<span class="w"> </span><span class="s1">'file:///recordings/gqrx_20260603_083011_1090000000_6000000_fc.raw.zst'</span>
+</code></pre></div>
+<p><code>sample_rate</code> remains a numeric TOML field; Desperado's new <code>Hz</code> parser does not
+make strings such as <code>"6 MHz"</code> valid here. An override describes the actual file
+encoding—it does not convert the samples.</p>
 <div class="admonition tip">
 <p class="admonition-title">Recording IQ files</p>
 <p>You can create IQ files using the <code>rtl_sdr</code> command (from rtl-sdr tools):</p>
@@ -1341,7 +1366,7 @@ rtl_sdr<span class="w"> </span>-f<span class="w"> </span>1090M<span class="w"> <
       <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.annotate", "content.code.copy", "navigation.expand", "navigation.footer", "navigation.indexes", "navigation.tabs", "navigation.tabs.sticky", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
+      <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
     
   </body>
